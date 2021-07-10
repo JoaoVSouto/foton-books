@@ -16,10 +16,8 @@ export const Container = styled.div<ContainerProps>`
     secondary ? theme.purple[700] : theme.blue[900]};
   border-radius: 0.3125rem;
 
-  /* TODO: apply box-shadow only if showcase is selected */
-  box-shadow: 2px 4px 48px rgba(154, 175, 209, 0.62134);
-
-  max-width: 17rem;
+  width: 100%;
+  transform: scale(0.92);
 
   display: flex;
   justify-content: space-between;
@@ -28,6 +26,8 @@ export const Container = styled.div<ContainerProps>`
   background-repeat: no-repeat;
   background-position: ${({ secondary }) =>
     secondary ? '-6px -37px' : '-25px 25px'};
+
+  transition: all 200ms;
 `;
 
 export const Metadata = styled.div`

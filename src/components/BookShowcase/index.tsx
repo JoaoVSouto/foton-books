@@ -6,7 +6,7 @@ type BookShowcaseProps = {
 
 export default function BookShowcase({ secondary }: BookShowcaseProps) {
   return (
-    <S.Container secondary={secondary}>
+    <S.Container secondary={secondary} className="book-showcase-container">
       <S.Metadata>
         <S.Info>
           <h3>Hooked</h3>

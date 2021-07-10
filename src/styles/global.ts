@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import bookSliderStyles from 'components/BookSlider/styles';
+
 import fontsConfiguration from './fonts';
 
 export default createGlobalStyle`
@@ -15,10 +17,13 @@ export default createGlobalStyle`
 
   body {
     font-family: ${({ theme }) => theme.fonts.SFProDisplay};
-    background-color: ${({ theme }) => theme.gray[50]};;
+    background-color: ${({ theme }) => theme.gray[50]};
+    overflow-x: hidden;
   }
 
   a {
     text-decoration: none;
   }
+
+  ${bookSliderStyles}
 `;
