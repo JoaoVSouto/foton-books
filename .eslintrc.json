@@ -50,6 +50,7 @@
       }
     ],
     "import/prefer-default-export": "off",
-    "jsx-a11y/label-has-associated-control": "off"
+    "jsx-a11y/label-has-associated-control": "off",
+    "@next/next/no-img-element": "off"
   }
 }
