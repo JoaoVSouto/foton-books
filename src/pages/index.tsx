@@ -1,3 +1,9 @@
+import styled from 'styled-components';
+
+const Title = styled.h1`
+  color: #ff0;
+`;
+
 export default function Home() {
-  return <h1>hello world!</h1>;
+  return <Title>hello world!</Title>;
 }
