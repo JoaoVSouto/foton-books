@@ -1,14 +1,19 @@
 import styled, { css } from 'styled-components';
 
+type ContainerProps = {
+  secondary?: boolean;
+};
+
 type ShapeProps = {
   circle?: boolean;
   triangle?: boolean;
   rectangle?: boolean;
 };
 
-export const Container = styled.div`
+export const Container = styled.div<ContainerProps>`
   padding: 1rem 1.25rem 0.8125rem;
-  background-color: ${({ theme }) => theme.blue[900]};
+  background-color: ${({ theme, secondary }) =>
+    secondary ? theme.purple[700] : theme.blue[900]};
   border-radius: 0.3125rem;
 
   /* TODO: apply box-shadow only if showcase is selected */
@@ -21,7 +26,8 @@ export const Container = styled.div`
 
   background-image: url('assets/shapes/oval.svg');
   background-repeat: no-repeat;
-  background-position: left bottom;
+  background-position: ${({ secondary }) =>
+    secondary ? '-6px -37px' : '-25px 25px'};
 `;
 
 export const Metadata = styled.div`

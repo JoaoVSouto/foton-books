@@ -1,8 +1,12 @@
 import * as S from './styles';
 
-export default function BookShowcase() {
+type BookShowcaseProps = {
+  secondary?: boolean;
+};
+
+export default function BookShowcase({ secondary }: BookShowcaseProps) {
   return (
-    <S.Container>
+    <S.Container secondary={secondary}>
       <S.Metadata>
         <S.Info>
           <h3>Hooked</h3>
