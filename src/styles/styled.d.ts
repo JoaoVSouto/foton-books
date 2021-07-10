@@ -5,6 +5,13 @@ declare module 'styled-components' {
     white: string;
     black: string;
 
+    fonts: {
+      SFProDisplay: string;
+      SFProText: string;
+      Roboto: string;
+      PlayfairDisplay: string;
+    };
+
     red: {
       300: string;
     };

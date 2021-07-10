@@ -2,6 +2,13 @@ export default {
   white: '#fff',
   black: '#000',
 
+  fonts: {
+    SFProDisplay: "'SF Pro Display', sans-serif",
+    SFProText: "'SF Pro Text', sans-serif",
+    Roboto: "'Roboto', sans-serif",
+    PlayfairDisplay: "'Playfair Display', serif",
+  },
+
   red: {
     300: '#ff6978',
   },
