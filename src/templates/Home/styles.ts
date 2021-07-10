@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.main`
-  padding: 3.125rem 1.25rem;
+import container from 'styles/mixins/container';
+
+export const Main = styled.main`
+  margin: 3.125rem 0;
+`;
+
+export const Container = styled.div`
+  ${container}
 `;
 
 export const Callout = styled.h1`
