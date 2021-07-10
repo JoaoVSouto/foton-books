@@ -1,5 +1,6 @@
 import SearchBookInput from 'components/SearchBookInput';
 import BookSectionContainer from 'components/BookSectionContainer';
+import BookShowcase from 'components/BookShowcase';
 
 import * as S from './styles';
 
@@ -18,7 +19,9 @@ export default function HomeTemplate() {
       <BookSectionContainer
         title="Discover new book"
         link={{ href: '#!', title: 'More' }}
-      />
+      >
+        <BookShowcase />
+      </BookSectionContainer>
     </S.Main>
   );
 }
