@@ -3,51 +3,65 @@ import { css } from 'styled-components';
 export default css`
   @font-face {
     font-family: 'SF Pro Display';
-    src: url('fonts/SF-Pro-Display-Regular.otf') format('opentype');
-    font-weight: 400;
+    src: url('fonts/SFProDisplay-Regular.woff2') format('woff2'),
+      url('fonts/SFProDisplay-Regular.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'SF Pro Display';
-    src: url('fonts/SF-Pro-Display-RegularItalic.otf') format('opentype');
-    font-weight: 400;
-    font-style: italic;
+    src: url('fonts/SFProDisplay-Bold.woff2') format('woff2'),
+      url('fonts/SFProDisplay-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'SF Pro Display';
-    src: url('fonts/SF-Pro-Display-Medium.otf') format('opentype');
+    src: url('fonts/SFProDisplay-Medium.woff2') format('woff2'),
+      url('fonts/SFProDisplay-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'SF Pro Display';
-    src: url('fonts/SF-Pro-Display-Semibold.otf') format('opentype');
+    src: url('fonts/SFProDisplay-RegularItalic.woff2') format('woff2'),
+      url('fonts/SFProDisplay-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'SF Pro Display';
+    src: url('fonts/SFProDisplay-Semibold.woff2') format('woff2'),
+      url('fonts/SFProDisplay-Semibold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'SF Pro Display';
-    src: url('fonts/SF-Pro-Display-Bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'SF Pro Text';
-    src: url('fonts/SF-Pro-Text-Medium.otf') format('opentype');
+    src: url('fonts/SFProText-Bold.woff2') format('woff2'),
+      url('fonts/SFProText-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'SF Pro Text';
+    src: url('fonts/SFProText-Medium.woff2') format('woff2'),
+      url('fonts/SFProText-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'SF Pro Text';
-    src: url('fonts/SF-Pro-Text-Bold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
