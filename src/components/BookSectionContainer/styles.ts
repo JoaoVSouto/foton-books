@@ -6,8 +6,10 @@ type ContainerProps = {
   marginTop: number;
 };
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.section<ContainerProps>`
   margin-top: ${({ marginTop = 1.875 }) => marginTop}rem;
+
+  position: relative;
 `;
 
 export const Info = styled.div`
@@ -56,4 +58,13 @@ export const Info = styled.div`
       }
     }
   }
+`;
+
+export const AdornmentContainer = styled.div`
+  font-size: 0;
+  z-index: -1;
+
+  position: absolute;
+  top: 3px;
+  right: -47px;
 `;

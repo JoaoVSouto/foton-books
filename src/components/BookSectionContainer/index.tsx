@@ -4,6 +4,7 @@ import * as S from './styles';
 
 type BookSectionContainerProps = {
   children?: ReactNode;
+  adornment?: ReactNode;
   title: string;
   marginTop?: number;
   link: {
@@ -13,6 +14,7 @@ type BookSectionContainerProps = {
 };
 
 export default function BookSectionContainer({
+  adornment,
   children,
   marginTop,
   link,
@@ -27,6 +29,8 @@ export default function BookSectionContainer({
       </S.Info>
 
       {children}
+
+      <S.AdornmentContainer>{adornment}</S.AdornmentContainer>
     </S.Container>
   );
 }

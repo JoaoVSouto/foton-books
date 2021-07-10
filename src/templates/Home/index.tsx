@@ -8,7 +8,7 @@ import * as S from './styles';
 export default function HomeTemplate() {
   return (
     <S.Main>
-      <S.Container>
+      <S.Container as="header">
         <SearchBookInput />
 
         <S.Callout>
@@ -20,6 +20,13 @@ export default function HomeTemplate() {
       <BookSectionContainer
         title="Discover new book"
         link={{ href: '#!', title: 'More' }}
+        adornment={
+          <img
+            src="assets/shapes/oval.svg"
+            alt="Oval shape"
+            aria-hidden="true"
+          />
+        }
       >
         <BookSlider>
           <BookShowcase />
