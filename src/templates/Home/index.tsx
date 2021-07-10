@@ -2,6 +2,7 @@ import SearchBookInput from 'components/SearchBookInput';
 import BookSectionContainer from 'components/BookSectionContainer';
 import BookSlider from 'components/BookSlider';
 import BookShowcase from 'components/BookShowcase';
+import CurrentlyReadingBook from 'components/CurrentlyReadingBook';
 
 import * as S from './styles';
 
@@ -32,6 +33,13 @@ export default function HomeTemplate() {
           <BookShowcase />
           <BookShowcase secondary />
         </BookSlider>
+      </BookSectionContainer>
+
+      <BookSectionContainer
+        title="Currently Reading"
+        link={{ href: '#!', title: 'All' }}
+      >
+        <CurrentlyReadingBook />
       </BookSectionContainer>
     </S.Main>
   );
