@@ -17,20 +17,28 @@ export const Container = styled.div`
   &:focus-within {
     border-color: ${({ theme }) => theme.red[300]};
 
-    svg {
-      transform: rotate(-132deg);
-    }
-
     svg path,
     svg circle {
       fill: ${({ theme }) => theme.red[300]};
     }
   }
 
+  label {
+    display: flex;
+    align-items: center;
+  }
+
   svg {
     margin-right: 0.625rem;
-    transition: transform 300ms;
     min-width: 1rem;
+
+    circle {
+      transition: fill 200ms;
+    }
+
+    path {
+      transition: fill 140ms;
+    }
   }
 `;
 
