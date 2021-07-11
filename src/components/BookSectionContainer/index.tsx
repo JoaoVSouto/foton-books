@@ -10,6 +10,7 @@ type BookSectionContainerProps = {
   link: {
     title: string;
     href: string;
+    target?: '_blank' | '_self' | '_parent' | '_top';
   };
 };
 
@@ -25,7 +26,13 @@ export default function BookSectionContainer({
       <S.Info>
         <h2>{title}</h2>
 
-        <a href={link.href}>{link.title}</a>
+        <a
+          href={link.href}
+          target={link.target}
+          rel={link.target === '_blank' && 'noopener noreferrer'}
+        >
+          {link.title}
+        </a>
       </S.Info>
 
       {children}
