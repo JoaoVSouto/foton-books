@@ -11,24 +11,35 @@ type ShapeProps = {
 };
 
 export const Main = styled.div`
-  background-color: ${({ theme }) => theme.green[300]};
   margin-top: 1.875rem;
-  width: 89vw;
-  border-radius: 0 0.1875rem 0.1875rem 0;
-  box-shadow: 0px 3px 45px rgba(121, 141, 67, 0.115084);
-
   position: relative;
+
+  &::before {
+    content: '';
+    background-color: ${({ theme }) => theme.green[300]};
+    height: 100%;
+    width: 30%;
+    z-index: -1;
+
+    position: absolute;
+  }
 `;
 
 export const Container = styled.div`
   ${container}
+`;
 
-  padding-inline-end: 0;
-
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
 
   height: 6.25rem;
+  width: 92%;
+  max-width: 720px;
+  background-color: ${({ theme }) => theme.green[300]};
+  position: relative;
+  border-radius: 0 0.1875rem 0.1875rem 0;
+  box-shadow: 0px 3px 45px rgba(121, 141, 67, 0.115084);
 `;
 
 export const BookCover = styled.img`
@@ -88,6 +99,7 @@ export const ShapeContainer = styled.div`
   overflow: hidden;
   position: absolute;
   top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
 `;
