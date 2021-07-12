@@ -57,6 +57,15 @@ export default css`
 
   @font-face {
     font-family: 'SF Pro Text';
+    src: url('/assets/fonts/SFProText-Regular.woff2') format('woff2'),
+      url('/assets/fonts/SFProText-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'SF Pro Text';
     src: url('/assets/fonts/SFProText-Medium.woff2') format('woff2'),
       url('/assets/fonts/SFProText-Medium.woff') format('woff');
     font-weight: 500;
