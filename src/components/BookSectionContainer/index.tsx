@@ -29,7 +29,7 @@ export default function BookSectionContainer({
         <a
           href={link.href}
           target={link.target}
-          rel={link.target === '_blank' && 'noopener noreferrer'}
+          rel={link.target === '_blank' ? 'noopener noreferrer' : undefined}
         >
           {link.title}
         </a>
