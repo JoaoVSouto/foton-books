@@ -46,7 +46,7 @@ export const Info = styled.div`
       width: 100%;
       height: var(--underline-height);
       background-color: ${({ theme }) => theme.blue[400]};
-      transform: translateX(-100%);
+      transform: translateX(-110%);
 
       transition: transform 200ms;
     }
