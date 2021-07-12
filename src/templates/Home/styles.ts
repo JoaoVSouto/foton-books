@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import container from 'styles/mixins/container';
 
 export const Main = styled.main`
-  margin: 3.125rem 0;
+  margin: 3.125rem 0 6.25rem;
 `;
 
 export const Container = styled.div`
