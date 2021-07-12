@@ -44,14 +44,14 @@ export const Info = styled.div`
     font-weight: 700;
     font-size: 1.6875rem;
     color: ${({ theme }) => theme.gray[100]};
-    letter-spacing: 2px;
+    letter-spacing: 0.125rem;
   }
 
   span {
     display: block;
     font-style: italic;
     font-size: 0.875rem;
-    letter-spacing: 1.29px;
+    letter-spacing: 0.080625rem;
     margin-top: 0.3125rem;
   }
 `;

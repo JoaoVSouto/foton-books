@@ -66,7 +66,7 @@ export const Info = styled.div`
     color: ${({ theme }) => theme.gray[900]};
     font-weight: 700;
     font-size: 1.25rem;
-    letter-spacing: 2px;
+    letter-spacing: 0.125rem;
   }
 
   span {

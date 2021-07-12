@@ -23,7 +23,7 @@ export const Info = styled.div`
     font-size: 1.125rem;
     color: #3f4043;
     font-weight: 500;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.03125rem;
   }
 
   a {
