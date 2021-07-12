@@ -13,6 +13,8 @@ export const Main = styled.nav`
   bottom: 0;
   background-color: ${({ theme }) => theme.white};
   height: 3.75rem;
+
+  z-index: 3;
 `;
 
 export const Container = styled.div`

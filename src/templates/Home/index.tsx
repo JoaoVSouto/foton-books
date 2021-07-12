@@ -5,6 +5,7 @@ import BookShowcase from 'components/BookShowcase';
 import CurrentlyReadingBook from 'components/CurrentlyReadingBook';
 import ReviewCard from 'components/ReviewCard';
 import Menu from 'components/Menu';
+import BookList from 'components/BookList';
 
 import * as S from './styles';
 
@@ -14,7 +15,11 @@ export default function HomeTemplate() {
       <S.Main>
         <S.Container as="header">
           <SearchBookInput />
+        </S.Container>
 
+        <BookList />
+
+        <S.Container>
           <S.Callout>
             Hi, <span>Mehmed Al Fatih</span>
             <img src="assets/img/waving-hand.png" alt="Waving hand" />
