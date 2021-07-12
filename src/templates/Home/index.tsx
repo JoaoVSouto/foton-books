@@ -3,6 +3,7 @@ import BookSectionContainer from 'components/BookSectionContainer';
 import BookSlider from 'components/BookSlider';
 import BookShowcase from 'components/BookShowcase';
 import CurrentlyReadingBook from 'components/CurrentlyReadingBook';
+import ReviewCard from 'components/ReviewCard';
 
 import * as S from './styles';
 
@@ -40,6 +41,18 @@ export default function HomeTemplate() {
         link={{ href: '#!', title: 'All' }}
       >
         <CurrentlyReadingBook />
+      </BookSectionContainer>
+
+      <BookSectionContainer
+        title="Reviews of The Days"
+        link={{
+          href: 'https://youtu.be/vBzBgewl4ac',
+          title: 'All Video',
+          target: '_blank',
+        }}
+        marginTop={2.8125}
+      >
+        <ReviewCard />
       </BookSectionContainer>
     </S.Main>
   );

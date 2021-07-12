@@ -15,6 +15,7 @@ export const Main = styled.div`
   margin-top: 1.875rem;
   width: 89vw;
   border-radius: 0 0.1875rem 0.1875rem 0;
+  box-shadow: 0px 3px 45px rgba(121, 141, 67, 0.115084);
 
   position: relative;
 `;
