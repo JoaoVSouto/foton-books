@@ -113,3 +113,41 @@ export const Shape = styled.img<ShapeProps>`
       transform: rotate(25deg);
     `}
 `;
+
+export const BookDetails = styled.section`
+  ${container}
+
+  margin-top: 2.25rem;
+  margin-bottom: 5.875rem;
+
+  h1 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.79rem;
+    letter-spacing: 0.03125rem;
+    color: ${({ theme }) => theme.gray[750]};
+
+    strong {
+      font-weight: 700;
+      letter-spacing: 0.09375rem;
+    }
+  }
+
+  span {
+    font-size: 1rem;
+    color: ${({ theme }) => theme.red[300]};
+    letter-spacing: 0.04191175rem;
+    font-weight: 500;
+    margin-top: 0.4375rem;
+    display: block;
+  }
+
+  p {
+    margin-top: 0.625rem;
+    letter-spacing: 0.03125rem;
+    line-height: 1.5625rem;
+    color: rgba(49, 49, 49, 0.6);
+    font-size: 0.875rem;
+    font-family: ${({ theme }) => theme.fonts.SFProText};
+  }
+`;

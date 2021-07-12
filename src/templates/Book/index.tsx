@@ -56,14 +56,44 @@ export default function BookTemplate() {
         />
       </S.Header>
 
-      <p style={{ marginTop: '80px' }}>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus,
-        veritatis laborum consequatur at quaerat temporibus perspiciatis vero
-        quia eius quibusdam cum maiores consectetur reiciendis aliquam qui
-        corporis voluptas hic quisquam? Magni deleniti ipsa animi eveniet
-        dolorem. Deleniti, placeat architecto qui quibusdam quisquam quidem
-        nulla. Quisquam aliquid totam veniam necessitatibus et.
-      </p>
+      <S.BookDetails>
+        <h1>
+          <strong>Hooked</strong> : How to Build Habid-Forming Products
+        </h1>
+        <span>Nir Eyal</span>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nemo
+          voluptas perspiciatis, veritatis nesciunt exercitationem dolore optio
+          sequi cum voluptates corporis minus enim esse expedita officia natus
+          ex hic. Eveniet obcaecati perferendis dolorem reiciendis voluptatibus
+          tempore deserunt minus reprehenderit distinctio officiis porro, veniam
+          maiores, ullam, dolorum magnam consectetur? Explicabo, aperiam? Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. Ratione nemo
+          voluptas perspiciatis, veritatis nesciunt exercitationem dolore optio
+          sequi cum voluptates corporis minus enim esse expedita officia natus
+          ex hic. Eveniet obcaecati perferendis dolorem reiciendis voluptatibus
+          tempore deserunt minus reprehenderit distinctio officiis porro, veniam
+          maiores, ullam, dolorum magnam consectetur? Explicabo, aperiam? Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. Ratione nemo
+          voluptas perspiciatis, veritatis nesciunt exercitationem dolore optio
+          sequi cum voluptates corporis minus enim esse expedita officia natus
+          ex hic. Eveniet obcaecati perferendis dolorem reiciendis voluptatibus
+          tempore deserunt minus reprehenderit distinctio officiis porro, veniam
+          maiores, ullam, dolorum magnam consectetur? Explicabo, aperiam? ipsum
+          dolor sit amet consectetur adipisicing elit. Ratione nemo voluptas
+          perspiciatis, veritatis nesciunt exercitationem dolore optio sequi cum
+          voluptates corporis minus enim esse expedita officia natus ex hic.
+          Eveniet obcaecati perferendis dolorem reiciendis voluptatibus tempore
+          deserunt minus reprehenderit distinctio officiis porro, veniam
+          maiores, ullam, dolorum magnam consectetur? Explicabo, aperiam? ipsum
+          dolor sit amet consectetur adipisicing elit. Ratione nemo voluptas
+          perspiciatis, veritatis nesciunt exercitationem dolore optio sequi cum
+          voluptates corporis minus enim esse expedita officia natus ex hic.
+          Eveniet obcaecati perferendis dolorem reiciendis voluptatibus tempore
+          deserunt minus reprehenderit distinctio officiis porro, veniam
+          maiores, ullam, dolorum magnam consectetur? Explicabo, aperiam?
+        </p>
+      </S.BookDetails>
     </>
   );
 }
