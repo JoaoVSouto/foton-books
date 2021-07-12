@@ -18,6 +18,10 @@ export default createGlobalStyle`
   body {
     font-family: ${({ theme }) => theme.fonts.SFProDisplay};
     background-color: ${({ theme }) => theme.gray[50]};
+  }
+
+  body,
+  #__next {
     overflow-x: hidden;
   }
 
