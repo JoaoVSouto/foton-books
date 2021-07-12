@@ -6,18 +6,29 @@ type ItemProps = {
   active?: boolean;
 };
 
-export const Container = styled.div`
-  ${container}
+export const Main = styled.nav`
+  width: 100%;
 
   position: fixed;
   bottom: 0;
-  width: 100%;
   background-color: ${({ theme }) => theme.white};
   height: 3.75rem;
+`;
 
+export const Container = styled.div`
+  ${container}
+
+  height: 100%;
+`;
+
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  height: 100%;
+  max-width: 540px;
+  margin: 0 auto;
 `;
 
 export const Item = styled.a<ItemProps>`
@@ -41,5 +52,6 @@ export const Item = styled.a<ItemProps>`
   svg {
     color: ${({ theme, active }) => (active ? theme.black : 'inherit')};
     margin-bottom: 0.625rem;
+    font-size: 1.3125rem;
   }
 `;
