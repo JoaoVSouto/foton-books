@@ -15,6 +15,10 @@ export const Main = styled.div`
   box-shadow: 0px 2px 4px rgba(229, 229, 229, 0.5);
   position: relative;
   overflow: hidden;
+
+  margin: 0 auto;
+
+  max-width: 540px;
 `;
 
 export const Shape = styled.img`
