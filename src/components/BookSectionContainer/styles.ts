@@ -38,7 +38,6 @@ export const Info = styled.div`
     overflow: hidden;
 
     margin-top: var(--underline-height);
-    outline: 0;
 
     &::after {
       content: '';
