@@ -17,7 +17,8 @@ export default function HomeTemplate() {
           <SearchBookInput />
         </S.Container>
 
-        <BookList />
+        {/* TODO: block body scroll when BookList is open */}
+        {false && <BookList />}
 
         <S.Container>
           <S.Callout>
