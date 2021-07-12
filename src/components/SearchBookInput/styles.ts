@@ -30,7 +30,8 @@ export const Container = styled.div`
 
   svg {
     margin-right: 0.625rem;
-    min-width: 1rem;
+    width: 1rem;
+    height: 1rem;
 
     circle {
       transition: fill 200ms;
