@@ -78,7 +78,8 @@ export default function BookTemplate({ book }: BookTemplateProps) {
 
       <S.BookDetails>
         <h1>
-          <strong>{book.title}</strong> : {book.subtitle}
+          <strong>{book.title}</strong>
+          {book.subtitle ? ` : ${book.subtitle}` : ''}
         </h1>
         <span>{book.authors}</span>
         <S.BookDescription
