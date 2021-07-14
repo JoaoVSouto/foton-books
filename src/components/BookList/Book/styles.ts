@@ -18,6 +18,7 @@ export const Book = styled.a`
     width: 6.25rem;
     height: 9.375rem;
     filter: drop-shadow(0px 2px 4px rgba(229, 229, 229, 0.5));
+    border-radius: 0.3125rem;
   }
 
   strong,
