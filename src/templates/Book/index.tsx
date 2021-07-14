@@ -81,38 +81,9 @@ export default function BookTemplate({ book }: BookTemplateProps) {
           <strong>{book.title}</strong> : {book.subtitle}
         </h1>
         <span>{book.authors}</span>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nemo
-          voluptas perspiciatis, veritatis nesciunt exercitationem dolore optio
-          sequi cum voluptates corporis minus enim esse expedita officia natus
-          ex hic. Eveniet obcaecati perferendis dolorem reiciendis voluptatibus
-          tempore deserunt minus reprehenderit distinctio officiis porro, veniam
-          maiores, ullam, dolorum magnam consectetur? Explicabo, aperiam? Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Ratione nemo
-          voluptas perspiciatis, veritatis nesciunt exercitationem dolore optio
-          sequi cum voluptates corporis minus enim esse expedita officia natus
-          ex hic. Eveniet obcaecati perferendis dolorem reiciendis voluptatibus
-          tempore deserunt minus reprehenderit distinctio officiis porro, veniam
-          maiores, ullam, dolorum magnam consectetur? Explicabo, aperiam? Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Ratione nemo
-          voluptas perspiciatis, veritatis nesciunt exercitationem dolore optio
-          sequi cum voluptates corporis minus enim esse expedita officia natus
-          ex hic. Eveniet obcaecati perferendis dolorem reiciendis voluptatibus
-          tempore deserunt minus reprehenderit distinctio officiis porro, veniam
-          maiores, ullam, dolorum magnam consectetur? Explicabo, aperiam? ipsum
-          dolor sit amet consectetur adipisicing elit. Ratione nemo voluptas
-          perspiciatis, veritatis nesciunt exercitationem dolore optio sequi cum
-          voluptates corporis minus enim esse expedita officia natus ex hic.
-          Eveniet obcaecati perferendis dolorem reiciendis voluptatibus tempore
-          deserunt minus reprehenderit distinctio officiis porro, veniam
-          maiores, ullam, dolorum magnam consectetur? Explicabo, aperiam? ipsum
-          dolor sit amet consectetur adipisicing elit. Ratione nemo voluptas
-          perspiciatis, veritatis nesciunt exercitationem dolore optio sequi cum
-          voluptates corporis minus enim esse expedita officia natus ex hic.
-          Eveniet obcaecati perferendis dolorem reiciendis voluptatibus tempore
-          deserunt minus reprehenderit distinctio officiis porro, veniam
-          maiores, ullam, dolorum magnam consectetur? Explicabo, aperiam?
-        </p>
+        <S.BookDescription
+          dangerouslySetInnerHTML={{ __html: book.description }}
+        />
       </S.BookDetails>
     </>
   );

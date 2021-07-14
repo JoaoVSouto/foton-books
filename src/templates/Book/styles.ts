@@ -141,13 +141,14 @@ export const BookDetails = styled.section`
     margin-top: 0.4375rem;
     display: block;
   }
+`;
 
-  p {
-    margin-top: 0.625rem;
-    letter-spacing: 0.03125rem;
-    line-height: 1.5625rem;
-    color: rgba(49, 49, 49, 0.6);
-    font-size: 0.875rem;
-    font-family: ${({ theme }) => theme.fonts.SFProText};
-  }
+export const BookDescription = styled.div`
+  margin-top: 0.625rem;
+  letter-spacing: 0.03125rem;
+  line-height: 1.5625rem;
+  color: rgba(49, 49, 49, 0.6);
+  font-size: 0.875rem;
+  font-family: ${({ theme }) => theme.fonts.SFProText};
+  text-align: justify;
 `;
