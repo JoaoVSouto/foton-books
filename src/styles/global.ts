@@ -44,5 +44,9 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
+  button {
+    cursor: pointer;
+  }
+
   ${bookSliderStyles}
 `;
