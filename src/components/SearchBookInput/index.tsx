@@ -4,10 +4,14 @@ import * as S from './styles';
 
 type SearchBookInputProps = {
   onFocus?: () => void;
+  onClose?: () => void;
+  shouldCloseButtonAppear?: boolean;
 };
 
 export default function SearchBookInput({
   onFocus = () => {},
+  onClose = () => {},
+  shouldCloseButtonAppear = false,
 }: SearchBookInputProps) {
   return (
     <S.Container>
@@ -41,9 +45,11 @@ export default function SearchBookInput({
         />
       </S.Wrapper>
 
-      <S.CloseButton type="button">
-        <FiX />
-      </S.CloseButton>
+      {shouldCloseButtonAppear && (
+        <S.CloseButton type="button" title="Close search" onClick={onClose}>
+          <FiX />
+        </S.CloseButton>
+      )}
     </S.Container>
   );
 }

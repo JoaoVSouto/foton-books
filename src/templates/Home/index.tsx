@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import SearchBookInput from 'components/SearchBookInput';
 import BookSectionContainer from 'components/BookSectionContainer';
 import BookSlider from 'components/BookSlider';
@@ -10,15 +12,29 @@ import BookList from 'components/BookList';
 import * as S from './styles';
 
 export default function HomeTemplate() {
+  const [isBookListOpen, setIsBookListOpen] = useState(false);
+
+  function handleSearchBookInputFocus() {
+    setIsBookListOpen(true);
+  }
+
+  function handleSearchBookInputClose() {
+    setIsBookListOpen(false);
+  }
+
   return (
     <>
       <S.Main>
         <S.Container as="header">
-          <SearchBookInput />
+          <SearchBookInput
+            onFocus={handleSearchBookInputFocus}
+            onClose={handleSearchBookInputClose}
+            shouldCloseButtonAppear={isBookListOpen}
+          />
         </S.Container>
 
         {/* TODO: block body scroll when BookList is open */}
-        {false && <BookList />}
+        {isBookListOpen && <BookList />}
 
         <S.Container>
           <S.Callout>
