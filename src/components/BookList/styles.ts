@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import SimpleBar from 'simplebar-react';
 
 import container from 'styles/mixins/container';
+import shimmer from 'styles/mixins/shimmer';
 
 type WrapperProps = {
   isOpen?: boolean;
@@ -48,4 +49,12 @@ export const Grid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
   gap: 1.25rem;
   padding-top: 0.3125rem;
+`;
+
+export const Shimmer = styled.div`
+  ${shimmer}
+
+  width: 6.25rem;
+  height: 9.375rem;
+  border-radius: 0.3125rem;
 `;

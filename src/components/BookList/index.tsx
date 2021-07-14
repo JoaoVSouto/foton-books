@@ -20,7 +20,6 @@ export default function BookList({ books, isOpen, isLoading }: BookListProps) {
     <S.Wrapper isOpen={isOpen}>
       <S.Container autoHide={false}>
         <S.Grid>
-          {isLoading && <h1>loading..</h1>}
           {books.map(book => (
             <Book
               key={book.id}
@@ -30,6 +29,13 @@ export default function BookList({ books, isOpen, isLoading }: BookListProps) {
               title={book.title}
             />
           ))}
+          {isLoading &&
+            Array(10)
+              .fill(0)
+              .map((_, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <S.Shimmer key={index} />
+              ))}
         </S.Grid>
       </S.Container>
     </S.Wrapper>
