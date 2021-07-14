@@ -102,6 +102,7 @@ export default function HomeTemplate({
           link={{ href: '#!', title: 'All' }}
         >
           <CurrentlyReadingBook
+            bookId={currentlyReadingBook.id}
             authors={currentlyReadingBook.authors}
             bookCoverUrl={currentlyReadingBook.bookCoverUrl}
             title={currentlyReadingBook.title}

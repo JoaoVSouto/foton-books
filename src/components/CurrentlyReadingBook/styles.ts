@@ -40,6 +40,14 @@ export const Wrapper = styled.div`
   position: relative;
   border-radius: 0 0.1875rem 0.1875rem 0;
   box-shadow: 0px 3px 45px rgba(121, 141, 67, 0.115084);
+  cursor: pointer;
+
+  transition: transform 200ms;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.03);
+  }
 `;
 
 export const BookCover = styled.img`

@@ -1,20 +1,47 @@
+import { KeyboardEvent } from 'react';
+import { useRouter } from 'next/router';
+
 import * as S from './styles';
 
 type CurrentlyReadingBookProps = {
+  bookId: string;
   title: string;
   authors: string;
   bookCoverUrl: string;
 };
 
 export default function CurrentlyReadingBook({
+  bookId,
   authors,
   bookCoverUrl,
   title,
 }: CurrentlyReadingBookProps) {
+  const router = useRouter();
+
+  function navigateToDetailsPage() {
+    router.push(`/books/${bookId}`);
+  }
+
+  function handleWrapperClick() {
+    navigateToDetailsPage();
+  }
+
+  function handleWrapperKeyPress(e: KeyboardEvent<HTMLDivElement>) {
+    if (e.key === 'Enter') {
+      navigateToDetailsPage();
+    }
+  }
+
   return (
     <S.Main>
       <S.Container>
-        <S.Wrapper>
+        <S.Wrapper
+          role="button"
+          title={`Go to ${title} details page`}
+          tabIndex={0}
+          onClick={handleWrapperClick}
+          onKeyPress={handleWrapperKeyPress}
+        >
           <S.BookCover src={bookCoverUrl} alt={`${title} by ${authors}`} />
 
           <S.Metadata>
