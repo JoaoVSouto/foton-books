@@ -24,6 +24,10 @@ export default function HomeTemplate() {
   function handleSearchBookInputFocus() {
     setIsBookListOpen(true);
 
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
     document.body.style.overflow = 'hidden';
   }
 
