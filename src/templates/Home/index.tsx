@@ -44,8 +44,7 @@ export default function HomeTemplate() {
           />
         </S.Container>
 
-        {/* TODO: block body scroll when BookList is open */}
-        {isBookListOpen && <BookList />}
+        <BookList isOpen={isBookListOpen} />
 
         <S.Container>
           <S.Callout>

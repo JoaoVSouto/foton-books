@@ -2,9 +2,13 @@ import Book from './Book';
 
 import * as S from './styles';
 
-export default function BookList() {
+type BookListProps = {
+  isOpen?: boolean;
+};
+
+export default function BookList({ isOpen }: BookListProps) {
   return (
-    <S.Wrapper>
+    <S.Wrapper isOpen={isOpen}>
       <S.Container autoHide={false}>
         <S.Grid>
           <Book />

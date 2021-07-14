@@ -1,16 +1,32 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import SimpleBar from 'simplebar-react';
 
 import container from 'styles/mixins/container';
 
-export const Wrapper = styled.div`
+type WrapperProps = {
+  isOpen?: boolean;
+};
+
+export const Wrapper = styled.div<WrapperProps>`
   position: absolute;
   background-color: ${({ theme }) => theme.gray[50]};
   min-height: 100%;
   width: 100%;
   padding: 2.5rem 0;
 
+  opacity: 0;
+  visibility: hidden;
+
   z-index: 2;
+
+  transition: opacity 200ms, visibility 200ms;
+
+  ${({ isOpen }) =>
+    isOpen &&
+    css`
+      opacity: 1;
+      visibility: visible;
+    `}
 `;
 
 export const Container = styled(SimpleBar)`
