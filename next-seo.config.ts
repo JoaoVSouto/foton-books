@@ -8,6 +8,14 @@ export default {
     site_name: 'Foton Books',
     title: 'Foton Books',
     description: 'Search your favorite books and discover new ones everyday!',
+    images: [
+      {
+        url: 'https://foton-frontend-challenge-joaovsouto.vercel.app/assets/img/foton.png',
+        width: 250,
+        height: 250,
+        alt: 'Foton Books',
+      },
+    ],
   },
   additionalMetaTags: [
     {
