@@ -107,35 +107,38 @@ export default function BookTemplate({ book }: BookTemplateProps) {
       </S.BookDetails>
 
       <S.QuickActionContainer>
-        {/* TODO: add shimmer here */}
-        <S.QuickAction>
-          <a
-            href={`https://books.google.com.br/books?id=${book?.id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FiBookOpen strokeWidth={3} />
-            Read
-          </a>
-          <span />
-          <a
-            href={`https://books.google.com.br/books?id=${book?.id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FiHeadphones strokeWidth={4} />
-            Listen
-          </a>
-          <span />
-          <a
-            href={`https://books.google.com.br/books?id=${book?.id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FiShare strokeWidth={3} />
-            Share
-          </a>
-        </S.QuickAction>
+        {isLoading ? (
+          <S.QuickActionShimmer />
+        ) : (
+          <S.QuickAction>
+            <a
+              href={`https://books.google.com.br/books?id=${book?.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FiBookOpen strokeWidth={3} />
+              Read
+            </a>
+            <span />
+            <a
+              href={`https://books.google.com.br/books?id=${book?.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FiHeadphones strokeWidth={4} />
+              Listen
+            </a>
+            <span />
+            <a
+              href={`https://books.google.com.br/books?id=${book?.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FiShare strokeWidth={3} />
+              Share
+            </a>
+          </S.QuickAction>
+        )}
       </S.QuickActionContainer>
     </>
   );

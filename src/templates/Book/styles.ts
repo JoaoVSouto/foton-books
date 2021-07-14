@@ -251,3 +251,13 @@ export const QuickAction = styled.div`
     transition: color 200ms;
   }
 `;
+
+export const QuickActionShimmer = styled.div`
+  ${shimmer}
+
+  width: 100%;
+  max-width: 20.9375rem;
+  height: 3.5rem;
+  margin: 0 auto;
+  box-shadow: 3px 3px 23px rgba(107, 103, 70, 0.125901);
+`;
