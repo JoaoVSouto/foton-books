@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { rgba } from 'polished';
 
 import container from 'styles/mixins/container';
 import shimmer from 'styles/mixins/shimmer';
@@ -127,7 +128,7 @@ export const BookDetails = styled.section`
   ${container}
 
   margin-top: 2.25rem;
-  margin-bottom: 5.875rem;
+  margin-bottom: 8rem;
 
   h1 {
     font-weight: 400;
@@ -188,5 +189,65 @@ export const DescriptionShimmer = styled.div.attrs({
 
   + .description-shimmer {
     margin-top: 0.5rem;
+  }
+`;
+
+export const QuickActionContainer = styled.nav`
+  ${container}
+
+  position: fixed;
+  bottom: 3.3125rem;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+`;
+
+export const QuickAction = styled.div`
+  max-width: 20.9375rem;
+  margin: 0 auto;
+
+  background-color: ${({ theme }) => theme.white};
+  box-shadow: 3px 3px 23px rgba(107, 103, 70, 0.125901);
+
+  padding: 0 1.375rem;
+  height: 3.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 0.875rem;
+  font-weight: 700;
+
+  color: ${({ theme }) => theme.gray[700]};
+  letter-spacing: 1px;
+
+  a {
+    display: flex;
+    align-items: center;
+    color: inherit;
+
+    &:hover,
+    &:focus {
+      svg {
+        color: ${({ theme }) => theme.gray[700]};
+      }
+    }
+  }
+
+  span {
+    width: 2px;
+    height: 1rem;
+    background-color: ${({ theme }) => rgba(theme.gray[525], 0.2)};
+  }
+
+  svg {
+    color: ${({ theme }) => theme.gray[435]};
+    font-size: 1rem;
+    margin-right: 0.625rem;
+
+    transition: color 200ms;
   }
 `;

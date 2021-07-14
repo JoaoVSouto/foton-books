@@ -33,6 +33,7 @@ export default createGlobalStyle`
   body {
     font-family: ${({ theme }) => theme.fonts.SFProDisplay};
     background-color: ${({ theme }) => theme.gray[50]};
+    min-height: 100vh;
   }
 
   body,

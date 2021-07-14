@@ -32,6 +32,7 @@ class BookUtils {
     );
 
     return {
+      id: book.id,
       title: book.volumeInfo.title,
       subtitle: book.volumeInfo?.subtitle || '',
       description: book.volumeInfo.description || '',
