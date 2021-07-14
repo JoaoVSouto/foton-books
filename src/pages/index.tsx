@@ -1,10 +1,8 @@
 import { GetStaticProps } from 'next';
 
-import { Book } from 'models/Book';
-
 import BookUtils from 'utils/book';
 
-import api from 'services/api';
+import BookService from 'services/BookService';
 
 import HomeTemplate, { HomeTemplateProps } from 'templates/Home';
 
@@ -28,15 +26,10 @@ export const getStaticProps: GetStaticProps = async () => {
     currentlyReading: 'Cy86CQAAQBAJ',
   };
 
-  // TODO: refactor these requests to services
   const [discoverBooksResponse, currentlyReadingBookResponse] =
     await Promise.all([
-      Promise.all(
-        incomingBooksIds.discover.map(bookId =>
-          api.get<Book>(`volumes/${bookId}`)
-        )
-      ),
-      api.get<Book>(`volumes/${incomingBooksIds.currentlyReading}`),
+      Promise.all(incomingBooksIds.discover.map(BookService.fetchById)),
+      BookService.fetchById(incomingBooksIds.currentlyReading),
     ]);
 
   const parsedDiscoverBooks = discoverBooksResponse.map(bookResponse =>
