@@ -1,4 +1,5 @@
 import { useEffect, useState, useMemo, useRef } from 'react';
+import { NextSeo } from 'next-seo';
 import axios from 'axios';
 import debounce from 'lodash.debounce';
 
@@ -149,6 +150,8 @@ export default function HomeTemplate({
 
   return (
     <>
+      <NextSeo title="Home | Foton Books" />
+
       <S.Main>
         <S.Container as="header">
           <SearchBookInput

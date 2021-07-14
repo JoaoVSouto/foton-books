@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
 import { FiArrowLeft, FiBookOpen, FiHeadphones, FiShare } from 'react-icons/fi';
 
 import * as S from './styles';
@@ -24,6 +25,8 @@ export default function BookTemplate({ book }: BookTemplateProps) {
 
   return (
     <>
+      <NextSeo title={`${book?.title || 'Loading...'} | Foton Books`} />
+
       <S.Header>
         <S.Container>
           <Link href="/">
