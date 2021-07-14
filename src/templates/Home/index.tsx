@@ -100,6 +100,10 @@ export default function HomeTemplate({
   }
 
   function handleSearchBookInputFocus() {
+    if (isBookListOpen) {
+      return;
+    }
+
     resetBooksState();
     setIsBookListOpen(true);
     cancelToken.current = axios.CancelToken.source();
