@@ -1,7 +1,11 @@
+import { KeyboardEvent } from 'react';
+import { useRouter } from 'next/router';
+
 import * as S from './styles';
 
 type BookShowcaseProps = {
   secondary?: boolean;
+  bookId: string;
   title: string;
   authors: string;
   bookCoverUrl: string;
@@ -9,12 +13,37 @@ type BookShowcaseProps = {
 
 export default function BookShowcase({
   secondary,
+  bookId,
   authors,
   bookCoverUrl,
   title,
 }: BookShowcaseProps) {
+  const router = useRouter();
+
+  function navigateToDetailsPage() {
+    router.push(`/books/${bookId}`);
+  }
+
+  function handleShowcaseClick() {
+    navigateToDetailsPage();
+  }
+
+  function handleShowcaseKeyPress(e: KeyboardEvent<HTMLDivElement>) {
+    if (e.key === 'Enter') {
+      navigateToDetailsPage();
+    }
+  }
+
   return (
-    <S.Container secondary={secondary} className="book-showcase-container">
+    <S.Container
+      secondary={secondary}
+      className="book-showcase-container"
+      role="button"
+      title={`Go to ${title} details page`}
+      tabIndex={0}
+      onClick={handleShowcaseClick}
+      onKeyPress={handleShowcaseKeyPress}
+    >
       <S.Metadata>
         <S.Info>
           <h3>{title}</h3>

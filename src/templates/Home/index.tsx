@@ -87,6 +87,7 @@ export default function HomeTemplate({
             {discoverBooks.map((book, index) => (
               <BookShowcase
                 key={book.id}
+                bookId={book.id}
                 authors={book.authors}
                 bookCoverUrl={book.bookCoverUrl}
                 title={book.title}

@@ -25,5 +25,10 @@ export default css`
   .slick-active .book-showcase-container {
     box-shadow: 2px 4px 48px rgba(154, 175, 209, 0.62134);
     transform: scale(1);
+
+    &:hover,
+    &:focus {
+      transform: scale(1.03);
+    }
   }
 `;

@@ -15,6 +15,7 @@ export const Container = styled.div<ContainerProps>`
   background-color: ${({ theme, secondary }) =>
     secondary ? theme.purple[700] : theme.blue[900]};
   border-radius: 0.3125rem;
+  cursor: pointer;
 
   width: 100%;
   transform: scale(0.92);
@@ -28,6 +29,11 @@ export const Container = styled.div<ContainerProps>`
     secondary ? '-6px -37px' : '-25px 25px'};
 
   transition: all 200ms;
+
+  &:hover,
+  &:focus {
+    transform: scale(0.95);
+  }
 `;
 
 export const Metadata = styled.div`
