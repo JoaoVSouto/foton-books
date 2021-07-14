@@ -1,9 +1,29 @@
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { FiArrowLeft } from 'react-icons/fi';
 
 import * as S from './styles';
 
-export default function BookTemplate() {
+type Book = {
+  title: string;
+  subtitle: string;
+  description: string;
+  authors: string;
+  bookCoverUrl: string;
+};
+
+export type BookTemplateProps = {
+  book: Book;
+};
+
+export default function BookTemplate({ book }: BookTemplateProps) {
+  const router = useRouter();
+
+  // TODO: change this to a proper loading
+  if (router.isFallback) {
+    return null;
+  }
+
   return (
     <>
       <S.Header>
@@ -18,8 +38,8 @@ export default function BookTemplate() {
 
         <S.BookCoverContainer>
           <S.BookCover
-            src="https://books.google.com/books/content?id=dsz5AwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-            alt="Hooked by Nir Eyal"
+            src={book.bookCoverUrl}
+            alt={`${book.title} by ${book.authors}`}
           />
 
           <S.Shape
@@ -58,9 +78,9 @@ export default function BookTemplate() {
 
       <S.BookDetails>
         <h1>
-          <strong>Hooked</strong> : How to Build Habid-Forming Products
+          <strong>{book.title}</strong> : {book.subtitle}
         </h1>
-        <span>Nir Eyal</span>
+        <span>{book.authors}</span>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nemo
           voluptas perspiciatis, veritatis nesciunt exercitationem dolore optio

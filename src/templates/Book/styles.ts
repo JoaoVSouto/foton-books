@@ -67,7 +67,7 @@ export const BookCoverContainer = styled.div`
 export const BookCover = styled.img`
   border-radius: 0.3125rem;
   width: 9.5625rem;
-  height: auto;
+  height: 14.3125rem;
   object-fit: cover;
 `;
 
