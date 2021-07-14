@@ -48,7 +48,7 @@ export default function HomeTemplate() {
           link={{ href: '#!', title: 'More' }}
           adornment={
             <img
-              src="assets/shapes/oval.svg"
+              src="/assets/shapes/oval.svg"
               alt="Oval shape"
               aria-hidden="true"
             />

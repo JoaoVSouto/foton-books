@@ -22,7 +22,7 @@ export const Container = styled.div<ContainerProps>`
   display: flex;
   justify-content: space-between;
 
-  background-image: url('assets/shapes/oval.svg');
+  background-image: url('/assets/shapes/oval.svg');
   background-repeat: no-repeat;
   background-position: ${({ secondary }) =>
     secondary ? '-6px -37px' : '-25px 25px'};
