@@ -22,7 +22,7 @@ class BookUtils {
 
   parseDetailsBook(book: Book) {
     const bookCoverUrlSearchParams = new URLSearchParams(
-      book.volumeInfo.imageLinks.thumbnail
+      book.volumeInfo.imageLinks?.thumbnail || ''
     );
 
     bookCoverUrlSearchParams.delete('edge');

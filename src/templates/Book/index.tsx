@@ -38,7 +38,9 @@ export default function BookTemplate({ book }: BookTemplateProps) {
             <S.BookCoverShimmer />
           ) : (
             <S.BookCover
-              src={book.bookCoverUrl}
+              src={
+                book.bookCoverUrl || '/assets/img/book-cover-placeholder.png'
+              }
               alt={`${book.title} by ${book.authors}`}
             />
           )}
