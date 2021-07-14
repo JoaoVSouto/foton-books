@@ -49,6 +49,9 @@ export default function HomeTemplate({
     []
   );
 
+  const shouldLoadMoreButtonAppear =
+    books.length < totalBooks && !isFetchingBooks;
+
   function resetBooksState() {
     setTotalBooks(0);
     setBooks([]);
@@ -75,6 +78,24 @@ export default function HomeTemplate({
     () => debounce((query: string) => fetchBooks(query), 500),
     []
   );
+
+  async function handleLoadMore() {
+    setIsFetchingBooks(true);
+
+    try {
+      const booksResponse = await BookService.fetchByQuery(
+        searchInputValue,
+        cancelToken.current,
+        books.length
+      );
+      setBooks(state => [
+        ...state,
+        ...booksResponse.data.items.map(BookUtils.parseInitialBook),
+      ]);
+    } finally {
+      setIsFetchingBooks(false);
+    }
+  }
 
   function resetSearchInput() {
     setSearchInputValue('');
@@ -141,6 +162,8 @@ export default function HomeTemplate({
           books={books}
           isOpen={isBookListOpen}
           isLoading={isFetchingBooks}
+          shouldLoadMoreButtonAppear={shouldLoadMoreButtonAppear}
+          onLoadMore={handleLoadMore}
         />
 
         <S.Container>

@@ -13,9 +13,17 @@ type BookListProps = {
   books: GoogleBook[];
   isOpen?: boolean;
   isLoading?: boolean;
+  shouldLoadMoreButtonAppear?: boolean;
+  onLoadMore?: () => void;
 };
 
-export default function BookList({ books, isOpen, isLoading }: BookListProps) {
+export default function BookList({
+  books,
+  isOpen,
+  isLoading,
+  shouldLoadMoreButtonAppear,
+  onLoadMore,
+}: BookListProps) {
   return (
     <S.Wrapper isOpen={isOpen}>
       <S.Container autoHide={false}>
@@ -37,6 +45,12 @@ export default function BookList({ books, isOpen, isLoading }: BookListProps) {
                 <S.Shimmer key={index} />
               ))}
         </S.Grid>
+
+        {shouldLoadMoreButtonAppear && (
+          <S.LoadMoreButton type="button" onClick={onLoadMore}>
+            Load more books
+          </S.LoadMoreButton>
+        )}
       </S.Container>
     </S.Wrapper>
   );

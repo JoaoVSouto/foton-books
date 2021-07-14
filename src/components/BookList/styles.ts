@@ -58,3 +58,27 @@ export const Shimmer = styled.div`
   height: 9.375rem;
   border-radius: 0.3125rem;
 `;
+
+export const LoadMoreButton = styled.button`
+  margin: 0 auto;
+  display: block;
+
+  margin-top: 1.25rem;
+
+  background-color: transparent;
+  border: 2px solid ${({ theme }) => theme.red[300]};
+  border-radius: 0.3125rem;
+  color: ${({ theme }) => theme.red[300]};
+  font-family: ${({ theme }) => theme.fonts.SFProDisplay};
+  font-weight: 500;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+
+  transition: all 200ms;
+
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.red[300]};
+    color: ${({ theme }) => theme.gray[50]};
+  }
+`;
