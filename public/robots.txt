@@ -1,0 +1,6 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://foton-frontend-challenge-joaovsouto.vercel.app
