@@ -79,7 +79,7 @@ export const BookCoverContainer = styled.div`
 
 export const BookCover = styled.img`
   border-radius: 0.3125rem;
-  width: 72px;
+  width: 4.5rem;
   height: auto;
   position: relative;
 `;
