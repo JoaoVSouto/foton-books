@@ -45,7 +45,7 @@ export const Container = styled(SimpleBar)`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
   gap: 1.25rem;
   padding-top: 0.3125rem;
 `;

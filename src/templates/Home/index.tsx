@@ -37,6 +37,7 @@ export default function HomeTemplate({
   const [searchInputValue, setSearchInputValue] = useState('');
   const [totalBooks, setTotalBooks] = useState(0);
   const [books, setBooks] = useState<Book[]>([]);
+  const [isFetchingBooks, setIsFetchingBooks] = useState(false);
 
   useEffect(
     () => () => {
@@ -48,6 +49,7 @@ export default function HomeTemplate({
   function resetBooksState() {
     setTotalBooks(0);
     setBooks([]);
+    setIsFetchingBooks(false);
   }
 
   async function fetchBooks(query = '') {
@@ -58,6 +60,8 @@ export default function HomeTemplate({
     } catch {
       setTotalBooks(0);
       setBooks([]);
+    } finally {
+      setIsFetchingBooks(false);
     }
   }
 
@@ -75,11 +79,15 @@ export default function HomeTemplate({
     setSearchInputValue(inputValue);
 
     if (inputValue.trim()) {
+      setIsFetchingBooks(true);
       fetchBookDebounced(inputValue);
+    } else {
+      setIsFetchingBooks(false);
     }
   }
 
   function handleSearchBookInputFocus() {
+    resetBooksState();
     setIsBookListOpen(true);
 
     window.scrollTo({
@@ -110,7 +118,11 @@ export default function HomeTemplate({
           />
         </S.Container>
 
-        <BookList books={books} isOpen={isBookListOpen} />
+        <BookList
+          books={books}
+          isOpen={isBookListOpen}
+          isLoading={isFetchingBooks}
+        />
 
         <S.Container>
           <S.Callout>

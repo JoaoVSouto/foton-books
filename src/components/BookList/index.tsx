@@ -12,13 +12,15 @@ type GoogleBook = {
 type BookListProps = {
   books: GoogleBook[];
   isOpen?: boolean;
+  isLoading?: boolean;
 };
 
-export default function BookList({ books, isOpen }: BookListProps) {
+export default function BookList({ books, isOpen, isLoading }: BookListProps) {
   return (
     <S.Wrapper isOpen={isOpen}>
       <S.Container autoHide={false}>
         <S.Grid>
+          {isLoading && <h1>loading..</h1>}
           {books.map(book => (
             <Book
               key={book.id}
