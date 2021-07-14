@@ -3,12 +3,16 @@ import { FiX } from 'react-icons/fi';
 import * as S from './styles';
 
 type SearchBookInputProps = {
+  value: string;
+  shouldCloseButtonAppear?: boolean;
+  onChange?: (inputValue: string) => void;
   onFocus?: () => void;
   onClose?: () => void;
-  shouldCloseButtonAppear?: boolean;
 };
 
 export default function SearchBookInput({
+  value,
+  onChange = () => {},
   onFocus = () => {},
   onClose = () => {},
   shouldCloseButtonAppear = false,
@@ -41,6 +45,8 @@ export default function SearchBookInput({
           id="search-book-input"
           type="text"
           placeholder="Search book"
+          value={value}
+          onChange={e => onChange(e.target.value)}
           onFocus={onFocus}
         />
       </S.Wrapper>

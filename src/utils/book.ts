@@ -3,7 +3,7 @@ import { Book } from 'models/Book';
 class BookUtils {
   parseInitialBook(book: Book) {
     const bookCoverUrlSearchParams = new URLSearchParams(
-      book.volumeInfo.imageLinks.thumbnail
+      book.volumeInfo.imageLinks?.thumbnail || ''
     );
 
     bookCoverUrlSearchParams.delete('edge');
@@ -15,7 +15,7 @@ class BookUtils {
     return {
       id: book.id,
       title: book.volumeInfo.title,
-      authors: book.volumeInfo.authors.join(', '),
+      authors: book.volumeInfo.authors?.join(', ') || '',
       bookCoverUrl,
     };
   }

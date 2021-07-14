@@ -14,13 +14,18 @@ export const Book = styled.a`
   }
 
   img {
-    height: auto;
+    object-fit: cover;
+    width: 6.25rem;
+    height: 9.375rem;
     filter: drop-shadow(0px 2px 4px rgba(229, 229, 229, 0.5));
   }
 
   strong,
   small {
     color: ${({ theme }) => rgba(theme.gray[800], 0.8)};
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   strong {

@@ -1,15 +1,22 @@
 import * as S from './styles';
 
-export default function Book() {
+type BookProps = {
+  id: string;
+  title: string;
+  authors: string;
+  bookCoverUrl: string;
+};
+
+export default function Book({ authors, bookCoverUrl, id, title }: BookProps) {
   return (
     <S.Book href="#!">
       <img
-        src="https://books.google.com/books/content?id=Cy86CQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-        alt="Hooked by Nir Eyal"
+        src={bookCoverUrl || '/assets/img/book-cover-placeholder.png'}
+        alt={`${title} by ${authors}`}
       />
 
-      <strong>HOOKED</strong>
-      <small>by Nir Eyal</small>
+      <strong>{title}</strong>
+      {authors && <small>by {authors}</small>}
     </S.Book>
   );
 }

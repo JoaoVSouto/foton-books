@@ -5,7 +5,6 @@ type VolumeInfo = {
   description: string;
   imageLinks: {
     thumbnail: string;
-    small: string;
   };
 };
 

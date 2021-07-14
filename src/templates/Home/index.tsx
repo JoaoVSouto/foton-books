@@ -1,4 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
+import debounce from 'lodash.debounce';
+
+import BookUtils from 'utils/book';
+
+import BookService from 'services/BookService';
 
 import SearchBookInput from 'components/SearchBookInput';
 import BookSectionContainer from 'components/BookSectionContainer';
@@ -23,11 +28,15 @@ export type HomeTemplateProps = {
   currentlyReadingBook: Book;
 };
 
+// TODO: extract books fetching logic into a custom hook
 export default function HomeTemplate({
   currentlyReadingBook,
   discoverBooks,
 }: HomeTemplateProps) {
   const [isBookListOpen, setIsBookListOpen] = useState(false);
+  const [searchInputValue, setSearchInputValue] = useState('');
+  const [totalBooks, setTotalBooks] = useState(0);
+  const [books, setBooks] = useState<Book[]>([]);
 
   useEffect(
     () => () => {
@@ -35,6 +44,40 @@ export default function HomeTemplate({
     },
     []
   );
+
+  function resetBooksState() {
+    setTotalBooks(0);
+    setBooks([]);
+  }
+
+  async function fetchBooks(query = '') {
+    try {
+      const booksResponse = await BookService.fetchByQuery(query);
+      setTotalBooks(booksResponse.data.totalItems);
+      setBooks(booksResponse.data.items.map(BookUtils.parseInitialBook));
+    } catch {
+      setTotalBooks(0);
+      setBooks([]);
+    }
+  }
+
+  const fetchBookDebounced = useMemo(
+    () => debounce((query: string) => fetchBooks(query), 500),
+    []
+  );
+
+  function resetSearchInput() {
+    setSearchInputValue('');
+  }
+
+  function handleSearchBookInputChange(inputValue: string) {
+    resetBooksState();
+    setSearchInputValue(inputValue);
+
+    if (inputValue.trim()) {
+      fetchBookDebounced(inputValue);
+    }
+  }
 
   function handleSearchBookInputFocus() {
     setIsBookListOpen(true);
@@ -48,6 +91,8 @@ export default function HomeTemplate({
 
   function handleSearchBookInputClose() {
     setIsBookListOpen(false);
+    resetSearchInput();
+    resetBooksState();
 
     document.body.style.overflow = '';
   }
@@ -57,13 +102,15 @@ export default function HomeTemplate({
       <S.Main>
         <S.Container as="header">
           <SearchBookInput
+            value={searchInputValue}
+            onChange={handleSearchBookInputChange}
             onFocus={handleSearchBookInputFocus}
             onClose={handleSearchBookInputClose}
             shouldCloseButtonAppear={isBookListOpen}
           />
         </S.Container>
 
-        <BookList isOpen={isBookListOpen} />
+        <BookList books={books} isOpen={isBookListOpen} />
 
         <S.Container>
           <S.Callout>
