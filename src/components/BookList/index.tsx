@@ -14,6 +14,7 @@ type BookListProps = {
   isOpen?: boolean;
   isLoading?: boolean;
   shouldLoadMoreButtonAppear?: boolean;
+  shouldNotFoundMessageAppear?: boolean;
   onLoadMore?: () => void;
 };
 
@@ -22,11 +23,17 @@ export default function BookList({
   isOpen,
   isLoading,
   shouldLoadMoreButtonAppear,
+  shouldNotFoundMessageAppear,
   onLoadMore,
 }: BookListProps) {
   return (
     <S.Wrapper isOpen={isOpen}>
       <S.Container autoHide={false}>
+        {shouldNotFoundMessageAppear && (
+          <S.NotFound>
+            Ooops... We couldn&apos;t find any books with this term.
+          </S.NotFound>
+        )}
         <S.Grid>
           {books.map(book => (
             <Book

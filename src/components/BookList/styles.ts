@@ -51,6 +51,13 @@ export const Grid = styled.div`
   padding-top: 0.3125rem;
 `;
 
+export const NotFound = styled.p`
+  text-align: center;
+  letter-spacing: 1px;
+  padding-top: 0.3125rem;
+  color: ${({ theme }) => theme.gray[560]};
+`;
+
 export const Shimmer = styled.div`
   ${shimmer}
 

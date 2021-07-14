@@ -51,6 +51,8 @@ export default function HomeTemplate({
 
   const shouldLoadMoreButtonAppear =
     books.length < totalBooks && !isFetchingBooks;
+  const shouldNotFoundMessageAppear =
+    searchInputValue && books.length === 0 && !isFetchingBooks;
 
   function resetBooksState() {
     setTotalBooks(0);
@@ -163,6 +165,7 @@ export default function HomeTemplate({
           isOpen={isBookListOpen}
           isLoading={isFetchingBooks}
           shouldLoadMoreButtonAppear={shouldLoadMoreButtonAppear}
+          shouldNotFoundMessageAppear={shouldNotFoundMessageAppear}
           onLoadMore={handleLoadMore}
         />
 
