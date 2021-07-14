@@ -5,6 +5,9 @@ import { ThemeProvider } from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'simplebar/dist/simplebar.min.css';
+
 import GlobalStyles from 'styles/global';
 import light from 'styles/themes/light';
 

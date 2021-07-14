@@ -5,7 +5,7 @@ import * as S from './styles';
 export default function BookList() {
   return (
     <S.Wrapper>
-      <S.Container>
+      <S.Container autoHide={false}>
         <S.Grid>
           <Book />
           <Book />

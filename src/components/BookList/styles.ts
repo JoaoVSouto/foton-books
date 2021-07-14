@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import SimpleBar from 'simplebar-react';
 
 import container from 'styles/mixins/container';
 
@@ -12,12 +13,18 @@ export const Wrapper = styled.div`
   z-index: 2;
 `;
 
-export const Container = styled.div`
+export const Container = styled(SimpleBar)`
   ${container}
 
   max-height: calc(100vh - 5rem - 4.125rem - 3.125rem);
   padding-bottom: 2rem;
-  overflow: auto;
+
+  .simplebar-track.simplebar-vertical {
+    .simplebar-scrollbar::before {
+      background-color: ${({ theme }) => theme.gray[550]};
+      opacity: 0.8;
+    }
+  }
 `;
 
 export const Grid = styled.div`
