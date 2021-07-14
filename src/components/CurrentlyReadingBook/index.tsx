@@ -1,19 +1,26 @@
 import * as S from './styles';
 
-export default function CurrentlyReadingBook() {
+type CurrentlyReadingBookProps = {
+  title: string;
+  authors: string;
+  bookCoverUrl: string;
+};
+
+export default function CurrentlyReadingBook({
+  authors,
+  bookCoverUrl,
+  title,
+}: CurrentlyReadingBookProps) {
   return (
     <S.Main>
       <S.Container>
         <S.Wrapper>
-          <S.BookCover
-            src="https://books.google.com/books/content?id=Cy86CQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-            alt="Originals by Adam Grant"
-          />
+          <S.BookCover src={bookCoverUrl} alt={`${title} by ${authors}`} />
 
           <S.Metadata>
             <S.Info>
-              <h3>Originals</h3>
-              <span>by Adam Grant</span>
+              <h3>{title}</h3>
+              <span>by {authors}</span>
             </S.Info>
 
             <S.Chapter>

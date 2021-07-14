@@ -2,15 +2,23 @@ import * as S from './styles';
 
 type BookShowcaseProps = {
   secondary?: boolean;
+  title: string;
+  authors: string;
+  bookCoverUrl: string;
 };
 
-export default function BookShowcase({ secondary }: BookShowcaseProps) {
+export default function BookShowcase({
+  secondary,
+  authors,
+  bookCoverUrl,
+  title,
+}: BookShowcaseProps) {
   return (
     <S.Container secondary={secondary} className="book-showcase-container">
       <S.Metadata>
         <S.Info>
-          <h3>Hooked</h3>
-          <span>Nir Eyal</span>
+          <h3>{title}</h3>
+          <span>{authors}</span>
         </S.Info>
 
         <S.ReadNow>
@@ -25,10 +33,7 @@ export default function BookShowcase({ secondary }: BookShowcaseProps) {
       </S.Metadata>
 
       <S.BookCoverContainer>
-        <S.BookCover
-          src="https://books.google.com/books/content?id=dsz5AwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-          alt="Hooked by Nir Eyal"
-        />
+        <S.BookCover src={bookCoverUrl} alt={`${title} by ${authors}`} />
 
         <S.Shape
           src="assets/shapes/outlined-circle.svg"

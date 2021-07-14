@@ -11,7 +11,22 @@ import BookList from 'components/BookList';
 
 import * as S from './styles';
 
-export default function HomeTemplate() {
+type Book = {
+  id: string;
+  title: string;
+  authors: string;
+  bookCoverUrl: string;
+};
+
+export type HomeTemplateProps = {
+  discoverBooks: Book[];
+  currentlyReadingBook: Book;
+};
+
+export default function HomeTemplate({
+  currentlyReadingBook,
+  discoverBooks,
+}: HomeTemplateProps) {
   const [isBookListOpen, setIsBookListOpen] = useState(false);
 
   useEffect(
@@ -69,8 +84,15 @@ export default function HomeTemplate() {
           }
         >
           <BookSlider>
-            <BookShowcase />
-            <BookShowcase secondary />
+            {discoverBooks.map((book, index) => (
+              <BookShowcase
+                key={book.id}
+                authors={book.authors}
+                bookCoverUrl={book.bookCoverUrl}
+                title={book.title}
+                secondary={index > 0}
+              />
+            ))}
           </BookSlider>
         </BookSectionContainer>
 
@@ -78,7 +100,11 @@ export default function HomeTemplate() {
           title="Currently Reading"
           link={{ href: '#!', title: 'All' }}
         >
-          <CurrentlyReadingBook />
+          <CurrentlyReadingBook
+            authors={currentlyReadingBook.authors}
+            bookCoverUrl={currentlyReadingBook.bookCoverUrl}
+            title={currentlyReadingBook.title}
+          />
         </BookSectionContainer>
 
         <BookSectionContainer

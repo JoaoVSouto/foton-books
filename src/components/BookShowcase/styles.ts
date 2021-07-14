@@ -45,6 +45,14 @@ export const Info = styled.div`
     font-size: 1.6875rem;
     color: ${({ theme }) => theme.gray[100]};
     letter-spacing: 0.125rem;
+    max-width: 8.8125rem;
+  }
+
+  h3,
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   span {
@@ -53,6 +61,7 @@ export const Info = styled.div`
     font-size: 0.875rem;
     letter-spacing: 0.080625rem;
     margin-top: 0.3125rem;
+    max-width: 9.9125rem;
   }
 `;
 
@@ -80,8 +89,9 @@ export const BookCoverContainer = styled.div`
 export const BookCover = styled.img`
   border-radius: 0.3125rem;
   width: 4.5rem;
-  height: auto;
+  height: 6.8125rem;
   position: relative;
+  object-fit: cover;
 `;
 
 export const Shape = styled.img<ShapeProps>`
