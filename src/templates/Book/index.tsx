@@ -107,9 +107,10 @@ export default function BookTemplate({ book }: BookTemplateProps) {
       </S.BookDetails>
 
       <S.QuickActionContainer>
+        {/* TODO: add shimmer here */}
         <S.QuickAction>
           <a
-            href={`https://books.google.com.br/books?id=${book.id}`}
+            href={`https://books.google.com.br/books?id=${book?.id}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -118,7 +119,7 @@ export default function BookTemplate({ book }: BookTemplateProps) {
           </a>
           <span />
           <a
-            href={`https://books.google.com.br/books?id=${book.id}`}
+            href={`https://books.google.com.br/books?id=${book?.id}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -127,7 +128,7 @@ export default function BookTemplate({ book }: BookTemplateProps) {
           </a>
           <span />
           <a
-            href={`https://books.google.com.br/books?id=${book.id}`}
+            href={`https://books.google.com.br/books?id=${book?.id}`}
             target="_blank"
             rel="noopener noreferrer"
           >
