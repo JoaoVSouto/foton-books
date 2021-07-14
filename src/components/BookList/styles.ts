@@ -15,9 +15,13 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   ${container}
 
+  max-height: calc(100vh - 5rem - 4.125rem - 3.125rem);
+  padding-bottom: 2rem;
+  overflow: auto;
+`;
+
+export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
   gap: 1.25rem;
-
-  margin-bottom: 10rem;
 `;

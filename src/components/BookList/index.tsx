@@ -6,31 +6,33 @@ export default function BookList() {
   return (
     <S.Wrapper>
       <S.Container>
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
+        <S.Grid>
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+          <Book />
+        </S.Grid>
       </S.Container>
     </S.Wrapper>
   );

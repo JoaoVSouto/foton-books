@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import SearchBookInput from 'components/SearchBookInput';
 import BookSectionContainer from 'components/BookSectionContainer';
@@ -14,12 +14,23 @@ import * as S from './styles';
 export default function HomeTemplate() {
   const [isBookListOpen, setIsBookListOpen] = useState(false);
 
+  useEffect(
+    () => () => {
+      document.body.style.overflow = '';
+    },
+    []
+  );
+
   function handleSearchBookInputFocus() {
     setIsBookListOpen(true);
+
+    document.body.style.overflow = 'hidden';
   }
 
   function handleSearchBookInputClose() {
     setIsBookListOpen(false);
+
+    document.body.style.overflow = '';
   }
 
   return (
