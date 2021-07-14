@@ -12,7 +12,7 @@ export const Wrapper = styled.div<WrapperProps>`
   background-color: ${({ theme }) => theme.gray[50]};
   min-height: 100%;
   width: 100%;
-  padding: 2.5rem 0;
+  padding: 2.1875rem 0 2.5rem;
 
   opacity: 0;
   visibility: hidden;
@@ -47,4 +47,5 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
   gap: 1.25rem;
+  padding-top: 0.3125rem;
 `;
