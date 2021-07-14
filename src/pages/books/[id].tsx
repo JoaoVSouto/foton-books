@@ -24,6 +24,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const parsedBook = BookUtils.parseDetailsBook(bookResponse.data);
 
     return {
+      revalidate: 60 * 60 * 12, // 12 hours
       props: {
         book: parsedBook,
       },
