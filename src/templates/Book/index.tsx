@@ -19,10 +19,7 @@ export type BookTemplateProps = {
 export default function BookTemplate({ book }: BookTemplateProps) {
   const router = useRouter();
 
-  // TODO: change this to a proper loading
-  if (router.isFallback) {
-    return null;
-  }
+  const isLoading = router.isFallback;
 
   return (
     <>
@@ -37,10 +34,14 @@ export default function BookTemplate({ book }: BookTemplateProps) {
         </S.Container>
 
         <S.BookCoverContainer>
-          <S.BookCover
-            src={book.bookCoverUrl}
-            alt={`${book.title} by ${book.authors}`}
-          />
+          {isLoading ? (
+            <S.BookCoverShimmer />
+          ) : (
+            <S.BookCover
+              src={book.bookCoverUrl}
+              alt={`${book.title} by ${book.authors}`}
+            />
+          )}
 
           <S.Shape
             src="/assets/shapes/red-small-circle.svg"
@@ -77,14 +78,29 @@ export default function BookTemplate({ book }: BookTemplateProps) {
       </S.Header>
 
       <S.BookDetails>
-        <h1>
-          <strong>{book.title}</strong>
-          {book.subtitle ? ` : ${book.subtitle}` : ''}
-        </h1>
-        <span>{book.authors}</span>
-        <S.BookDescription
-          dangerouslySetInnerHTML={{ __html: book.description }}
-        />
+        {isLoading ? (
+          <S.TitleShimmer />
+        ) : (
+          <h1>
+            <strong>{book.title}</strong>
+            {book.subtitle ? ` : ${book.subtitle}` : ''}
+          </h1>
+        )}
+        {isLoading ? <S.AuthorsShimmer /> : <span>{book.authors}</span>}
+        {isLoading ? (
+          <>
+            {Array(5)
+              .fill(0)
+              .map((_, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <S.DescriptionShimmer key={index} />
+              ))}
+          </>
+        ) : (
+          <S.BookDescription
+            dangerouslySetInnerHTML={{ __html: book.description }}
+          />
+        )}
       </S.BookDetails>
     </>
   );

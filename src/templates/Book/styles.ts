@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import container from 'styles/mixins/container';
+import shimmer from 'styles/mixins/shimmer';
 
 type ShapeProps = {
   redCircle?: boolean;
@@ -69,6 +70,14 @@ export const BookCover = styled.img`
   width: 9.5625rem;
   height: 14.3125rem;
   object-fit: cover;
+`;
+
+export const BookCoverShimmer = styled.div`
+  ${shimmer}
+
+  border-radius: 0.3125rem;
+  width: 9.5625rem;
+  height: 14.3125rem;
 `;
 
 export const Shape = styled.img<ShapeProps>`
@@ -151,4 +160,33 @@ export const BookDescription = styled.div`
   font-size: 0.875rem;
   font-family: ${({ theme }) => theme.fonts.SFProText};
   text-align: justify;
+`;
+
+export const TitleShimmer = styled.div`
+  ${shimmer}
+
+  width: 100%;
+  height: 1.75rem;
+`;
+
+export const AuthorsShimmer = styled.div`
+  ${shimmer}
+
+  width: 3.75rem;
+  height: 1.1875rem;
+  margin-top: 0.4375rem;
+`;
+
+export const DescriptionShimmer = styled.div.attrs({
+  className: 'description-shimmer',
+})`
+  ${shimmer}
+
+  width: 100%;
+  height: 1rem;
+  margin-top: 0.625rem;
+
+  + .description-shimmer {
+    margin-top: 0.5rem;
+  }
 `;

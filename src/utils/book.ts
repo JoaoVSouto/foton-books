@@ -34,7 +34,7 @@ class BookUtils {
     return {
       title: book.volumeInfo.title,
       subtitle: book.volumeInfo?.subtitle || '',
-      description: book.volumeInfo.description,
+      description: book.volumeInfo.description || '',
       authors: book.volumeInfo.authors.join(', '),
       bookCoverUrl,
     };
