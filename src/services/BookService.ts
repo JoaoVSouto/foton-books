@@ -1,3 +1,5 @@
+import { CancelTokenSource } from 'axios';
+
 import api from 'services/api';
 
 import { Book } from 'models/Book';
@@ -12,13 +14,14 @@ class BookService {
     return api.get<Book>(`volumes/${bookId}`);
   }
 
-  fetchByQuery(query = '', startIndex = 0) {
+  fetchByQuery(query: string, cancelToken: CancelTokenSource, startIndex = 0) {
     return api.get<FetchByQueryResponse>('volumes', {
       params: {
         langRestrict: 'en',
         q: query,
         startIndex,
       },
+      cancelToken: cancelToken.token,
     });
   }
 }

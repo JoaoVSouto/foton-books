@@ -1,4 +1,5 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
+import axios from 'axios';
 import debounce from 'lodash.debounce';
 
 import BookUtils from 'utils/book';
@@ -39,6 +40,8 @@ export default function HomeTemplate({
   const [books, setBooks] = useState<Book[]>([]);
   const [isFetchingBooks, setIsFetchingBooks] = useState(false);
 
+  const cancelToken = useRef(axios.CancelToken.source());
+
   useEffect(
     () => () => {
       document.body.style.overflow = '';
@@ -54,7 +57,10 @@ export default function HomeTemplate({
 
   async function fetchBooks(query = '') {
     try {
-      const booksResponse = await BookService.fetchByQuery(query);
+      const booksResponse = await BookService.fetchByQuery(
+        query,
+        cancelToken.current
+      );
       setTotalBooks(booksResponse.data.totalItems);
       setBooks(booksResponse.data.items.map(BookUtils.parseInitialBook));
     } catch {
@@ -78,17 +84,25 @@ export default function HomeTemplate({
     resetBooksState();
     setSearchInputValue(inputValue);
 
+    const isCanceledToken = Boolean(cancelToken.current.token.reason);
+
+    if (isCanceledToken) {
+      cancelToken.current = axios.CancelToken.source();
+    }
+
     if (inputValue.trim()) {
       setIsFetchingBooks(true);
       fetchBookDebounced(inputValue);
     } else {
       setIsFetchingBooks(false);
+      cancelToken.current.cancel();
     }
   }
 
   function handleSearchBookInputFocus() {
     resetBooksState();
     setIsBookListOpen(true);
+    cancelToken.current = axios.CancelToken.source();
 
     window.scrollTo({
       top: 0,
@@ -101,6 +115,7 @@ export default function HomeTemplate({
     setIsBookListOpen(false);
     resetSearchInput();
     resetBooksState();
+    cancelToken.current.cancel();
 
     document.body.style.overflow = '';
   }
