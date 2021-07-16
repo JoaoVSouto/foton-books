@@ -1,11 +1,7 @@
 import { useEffect, useState, useMemo, useRef } from 'react';
 import { NextSeo } from 'next-seo';
-import axios from 'axios';
-import debounce from 'lodash.debounce';
 
-import BookUtils from 'utils/book';
-
-import BookService from 'services/BookService';
+import useBooks from 'hooks/useBooks';
 
 import SearchBookInput from 'components/SearchBookInput';
 import BookSectionContainer from 'components/BookSectionContainer';
@@ -30,18 +26,25 @@ export type HomeTemplateProps = {
   currentlyReadingBook: Book;
 };
 
-// TODO: extract books fetching logic into a custom hook
 export default function HomeTemplate({
   currentlyReadingBook,
   discoverBooks,
 }: HomeTemplateProps) {
   const [isBookListOpen, setIsBookListOpen] = useState(false);
   const [searchInputValue, setSearchInputValue] = useState('');
-  const [totalBooks, setTotalBooks] = useState(0);
-  const [books, setBooks] = useState<Book[]>([]);
-  const [isFetchingBooks, setIsFetchingBooks] = useState(false);
 
-  const cancelToken = useRef(axios.CancelToken.source());
+  const {
+    books,
+    fetchBooks,
+    handleLoadMore,
+    isFetchingBooks,
+    setIsFetchingBooks,
+    cancelRequest,
+    isTokenCanceled,
+    refreshCancelToken,
+    resetBooksState,
+    shouldLoadMoreButtonAppear,
+  } = useBooks();
 
   useEffect(
     () => () => {
@@ -50,55 +53,8 @@ export default function HomeTemplate({
     []
   );
 
-  const shouldLoadMoreButtonAppear =
-    books.length < totalBooks && !isFetchingBooks;
   const shouldNotFoundMessageAppear =
     searchInputValue && books.length === 0 && !isFetchingBooks;
-
-  function resetBooksState() {
-    setTotalBooks(0);
-    setBooks([]);
-    setIsFetchingBooks(false);
-  }
-
-  async function fetchBooks(query = '') {
-    try {
-      const booksResponse = await BookService.fetchByQuery(
-        query,
-        cancelToken.current
-      );
-      setTotalBooks(booksResponse.data.totalItems);
-      setBooks(booksResponse.data.items.map(BookUtils.parseInitialBook));
-    } catch {
-      setTotalBooks(0);
-      setBooks([]);
-    } finally {
-      setIsFetchingBooks(false);
-    }
-  }
-
-  const fetchBookDebounced = useMemo(
-    () => debounce((query: string) => fetchBooks(query), 500),
-    []
-  );
-
-  async function handleLoadMore() {
-    setIsFetchingBooks(true);
-
-    try {
-      const booksResponse = await BookService.fetchByQuery(
-        searchInputValue,
-        cancelToken.current,
-        books.length
-      );
-      setBooks(state => [
-        ...state,
-        ...booksResponse.data.items.map(BookUtils.parseInitialBook),
-      ]);
-    } finally {
-      setIsFetchingBooks(false);
-    }
-  }
 
   function resetSearchInput() {
     setSearchInputValue('');
@@ -108,18 +64,16 @@ export default function HomeTemplate({
     resetBooksState();
     setSearchInputValue(inputValue);
 
-    const isCanceledToken = Boolean(cancelToken.current.token.reason);
-
-    if (isCanceledToken) {
-      cancelToken.current = axios.CancelToken.source();
+    if (isTokenCanceled) {
+      refreshCancelToken();
     }
 
     if (inputValue.trim()) {
       setIsFetchingBooks(true);
-      fetchBookDebounced(inputValue);
+      fetchBooks(inputValue);
     } else {
       setIsFetchingBooks(false);
-      cancelToken.current.cancel();
+      cancelRequest();
     }
   }
 
@@ -130,7 +84,7 @@ export default function HomeTemplate({
 
     resetBooksState();
     setIsBookListOpen(true);
-    cancelToken.current = axios.CancelToken.source();
+    refreshCancelToken();
 
     window.scrollTo({
       top: 0,
@@ -143,7 +97,7 @@ export default function HomeTemplate({
     setIsBookListOpen(false);
     resetSearchInput();
     resetBooksState();
-    cancelToken.current.cancel();
+    cancelRequest();
 
     document.body.style.overflow = '';
   }
@@ -169,7 +123,7 @@ export default function HomeTemplate({
           isLoading={isFetchingBooks}
           shouldLoadMoreButtonAppear={shouldLoadMoreButtonAppear}
           shouldNotFoundMessageAppear={shouldNotFoundMessageAppear}
-          onLoadMore={handleLoadMore}
+          onLoadMore={() => handleLoadMore(searchInputValue)}
         />
 
         <S.ContentContainer visible={!isBookListOpen}>
