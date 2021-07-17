@@ -1,8 +1,9 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
-import { ThemeProvider } from 'styled-components';
 import NextNProgress from 'nextjs-progressbar';
+
+import { ThemeProvider } from 'contexts/ThemeContext';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -12,7 +13,6 @@ import 'simplebar/dist/simplebar.min.css';
 
 import GlobalStyles from 'styles/global';
 import light from 'styles/themes/light';
-import dark from 'styles/themes/dark';
 
 import SEO from '../../next-seo.config';
 
@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <DefaultSeo {...SEO} />
 
-      <ThemeProvider theme={false ? light : dark}>
+      <ThemeProvider>
         <NextNProgress
           color={light.red[300]}
           startPosition={0.3}
