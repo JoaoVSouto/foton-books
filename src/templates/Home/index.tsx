@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { NextSeo } from 'next-seo';
 
 import useBooks from 'hooks/useBooks';
