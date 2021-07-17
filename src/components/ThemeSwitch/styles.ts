@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export default css`
   .react-switch-bg > div {
@@ -11,4 +11,8 @@ export default css`
     font-style: normal;
     font-size: 0.9rem;
   }
+`;
+
+export const Container = styled.label`
+  z-index: 1;
 `;

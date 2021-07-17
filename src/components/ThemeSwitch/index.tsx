@@ -3,6 +3,8 @@ import Switch from 'react-switch';
 
 import useTheme from 'hooks/useTheme';
 
+import * as S from './styles';
+
 export default function ThemeSwitch() {
   const { changeTheme, theme } = useTheme();
 
@@ -19,7 +21,7 @@ export default function ThemeSwitch() {
   }
 
   return (
-    <label title="Toggle light theme">
+    <S.Container title="Toggle light theme">
       <Switch
         aria-label="Toggle light theme"
         checked={isChecked}
@@ -31,6 +33,6 @@ export default function ThemeSwitch() {
         offColor="#333"
         onColor="#000"
       />
-    </label>
+    </S.Container>
   );
 }
