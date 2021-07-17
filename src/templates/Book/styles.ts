@@ -83,6 +83,7 @@ export const BookCoverShimmer = styled.div`
 
 export const Shape = styled.img<ShapeProps>`
   position: absolute;
+  transition: filter 200ms;
 
   ${({ redCircle }) =>
     redCircle &&

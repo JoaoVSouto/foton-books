@@ -69,5 +69,6 @@ export const AdornmentContainer = styled.div`
 
   img {
     filter: brightness(${({ theme }) => theme.brightness});
+    transition: filter 200ms;
   }
 `;

@@ -20,7 +20,7 @@ export const Wrapper = styled.div<WrapperProps>`
 
   z-index: 2;
 
-  transition: opacity 200ms, visibility 200ms;
+  transition: opacity 200ms, visibility 200ms, background-color 200ms;
 
   ${({ isOpen }) =>
     isOpen &&

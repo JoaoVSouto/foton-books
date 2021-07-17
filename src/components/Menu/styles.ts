@@ -13,6 +13,7 @@ export const Main = styled.nav`
   bottom: 0;
   background-color: ${({ theme }) => theme.white};
   height: 3.75rem;
+  transition: background-color 200ms;
 
   z-index: 3;
 `;

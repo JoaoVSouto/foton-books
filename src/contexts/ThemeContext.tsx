@@ -1,17 +1,12 @@
-import { ReactNode, createContext } from 'react';
-import {
-  ThemeProvider as StyledProvider,
-  DefaultTheme,
-} from 'styled-components';
+import { ReactNode, createContext, useState } from 'react';
+import { ThemeProvider as StyledProvider } from 'styled-components';
 
 import light from 'styles/themes/light';
 import dark from 'styles/themes/dark';
 
-type ThemeOptions = DefaultTheme['type'];
-
 type ThemeContextData = {
-  theme: ThemeOptions;
-  changeTheme: (theme: ThemeOptions) => void;
+  theme: string;
+  changeTheme: (theme: string) => void;
 };
 
 type ThemeProviderProps = {
@@ -21,10 +16,10 @@ type ThemeProviderProps = {
 export const ThemeContext = createContext({} as ThemeContextData);
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const theme = 'light';
+  const [theme, setTheme] = useState('light');
 
-  function changeTheme(newTheme: ThemeOptions) {
-    console.log(theme);
+  function changeTheme(newTheme: string) {
+    setTheme(newTheme);
   }
 
   return (

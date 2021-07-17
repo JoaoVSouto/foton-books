@@ -35,6 +35,8 @@ export default createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.SFProDisplay};
     background-color: ${({ theme }) => theme.gray[50]};
     min-height: 100vh;
+
+    transition: background-color 200ms;
   }
 
   body,
