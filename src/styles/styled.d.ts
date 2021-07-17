@@ -2,6 +2,8 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    type: 'light' | 'dark';
+
     white: string;
     black: string;
 
@@ -11,6 +13,8 @@ declare module 'styled-components' {
       Roboto: string;
       PlayfairDisplay: string;
     };
+
+    brightness: number;
 
     red: {
       300: string;

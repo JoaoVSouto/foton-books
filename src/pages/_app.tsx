@@ -12,6 +12,7 @@ import 'simplebar/dist/simplebar.min.css';
 
 import GlobalStyles from 'styles/global';
 import light from 'styles/themes/light';
+import dark from 'styles/themes/dark';
 
 import SEO from '../../next-seo.config';
 
@@ -40,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <DefaultSeo {...SEO} />
 
-      <ThemeProvider theme={light}>
+      <ThemeProvider theme={false ? light : dark}>
         <NextNProgress
           color={light.red[300]}
           startPosition={0.3}

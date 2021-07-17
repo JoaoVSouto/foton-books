@@ -21,7 +21,7 @@ export const Info = styled.div`
 
   h2 {
     font-size: 1.125rem;
-    color: #3f4043;
+    color: ${({ theme }) => theme.gray[700]};
     font-weight: 500;
     letter-spacing: 0.03125rem;
   }
@@ -66,4 +66,8 @@ export const AdornmentContainer = styled.div`
   position: absolute;
   top: 3px;
   right: -47px;
+
+  img {
+    filter: brightness(${({ theme }) => theme.brightness});
+  }
 `;
