@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 import bookSliderStyles from 'components/BookSlider/styles';
+import themeSwitchStyles from 'components/ThemeSwitch/styles';
 
 import fontsConfiguration from './fonts';
 import breakpoints from './breakpoints';
@@ -50,4 +51,6 @@ export default createGlobalStyle`
   }
 
   ${bookSliderStyles}
+
+  ${themeSwitchStyles}
 `;
