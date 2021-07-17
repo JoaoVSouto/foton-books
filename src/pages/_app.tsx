@@ -2,6 +2,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'styled-components';
+import NextNProgress from 'nextjs-progressbar';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -40,6 +41,14 @@ function MyApp({ Component, pageProps }: AppProps) {
       <DefaultSeo {...SEO} />
 
       <ThemeProvider theme={light}>
+        <NextNProgress
+          color={light.red[300]}
+          startPosition={0.3}
+          stopDelayMs={200}
+          height={3}
+          options={{ showSpinner: false }}
+        />
+
         <Component {...pageProps} />
 
         <GlobalStyles />
