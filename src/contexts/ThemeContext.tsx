@@ -1,5 +1,7 @@
-import { ReactNode, createContext, useState } from 'react';
+import { ReactNode, createContext } from 'react';
 import { ThemeProvider as StyledProvider } from 'styled-components';
+
+import usePersistedState from 'hooks/usePersistedState';
 
 import light from 'styles/themes/light';
 import dark from 'styles/themes/dark';
@@ -15,8 +17,15 @@ type ThemeProviderProps = {
 
 export const ThemeContext = createContext({} as ThemeContextData);
 
+const doesUserPreferDarkMode =
+  process.browser &&
+  window.matchMedia?.apply(this, ['(prefers-color-scheme: dark)']).matches;
+
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = usePersistedState(
+    '@foton-books/theme',
+    doesUserPreferDarkMode ? 'dark' : 'light'
+  );
 
   function changeTheme(newTheme: string) {
     setTheme(newTheme);
