@@ -1,4 +1,4 @@
-import { ReactNode, createContext } from 'react';
+import { ReactNode, createContext, useState, useEffect } from 'react';
 import { ThemeProvider as StyledProvider } from 'styled-components';
 
 import usePersistedState from 'hooks/usePersistedState';
@@ -27,15 +27,27 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     doesUserPreferDarkMode ? 'dark' : 'light'
   );
 
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   function changeTheme(newTheme: string) {
     setTheme(newTheme);
   }
 
-  return (
+  const childrenBody = (
     <StyledProvider theme={theme === 'light' ? light : dark}>
       <ThemeContext.Provider value={{ changeTheme, theme }}>
         {children}
       </ThemeContext.Provider>
     </StyledProvider>
   );
+
+  if (!isMounted) {
+    return <div style={{ visibility: 'hidden' }}>{childrenBody}</div>;
+  }
+
+  return childrenBody;
 }
