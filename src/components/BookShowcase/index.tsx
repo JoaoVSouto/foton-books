@@ -9,6 +9,7 @@ type BookShowcaseProps = {
   title: string;
   authors: string;
   bookCoverUrl: string;
+  readNow: number;
 };
 
 export default function BookShowcase({
@@ -17,6 +18,7 @@ export default function BookShowcase({
   authors,
   bookCoverUrl,
   title,
+  readNow,
 }: BookShowcaseProps) {
   const router = useRouter();
 
@@ -56,7 +58,7 @@ export default function BookShowcase({
             alt="Book information"
             aria-hidden="true"
           />
-          <strong>120+&nbsp;</strong>
+          <strong>{readNow}+&nbsp;</strong>
           Read Now
         </S.ReadNow>
       </S.Metadata>

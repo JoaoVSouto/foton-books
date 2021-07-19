@@ -158,6 +158,7 @@ export default function HomeTemplate({
                   bookCoverUrl={book.bookCoverUrl}
                   title={book.title}
                   secondary={index > 0}
+                  readNow={index === 0 ? 120 : 90}
                 />
               ))}
             </BookSlider>
