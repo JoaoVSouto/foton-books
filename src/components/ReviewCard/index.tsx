@@ -16,7 +16,7 @@ export default function ReviewCard() {
         />
 
         <S.Info>
-          <h4>Don’t Make Me Think - Steve Krug</h4>
+          <h3>Don’t Make Me Think - Steve Krug</h3>
 
           <S.Metadata>
             <span>Jesse Showalter</span>

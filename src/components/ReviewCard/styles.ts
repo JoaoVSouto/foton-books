@@ -40,7 +40,7 @@ export const Info = styled.div`
   background-color: ${({ theme }) => theme.white};
   border-radius: 0 0 0.3125rem 0.3125rem;
 
-  h4 {
+  h3 {
     color: ${({ theme }) => rgba(theme.gray[800], 0.8)};
     font-size: 0.75rem;
   }
