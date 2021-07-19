@@ -1,8 +1,8 @@
 export default {
-  type: 'light',
+  type: 'dark',
 
-  white: '#fff',
-  black: '#000',
+  white: '#333',
+  black: '#fff',
 
   fonts: {
     SFProDisplay: "'SF Pro Display', sans-serif",
@@ -11,7 +11,7 @@ export default {
     PlayfairDisplay: "'Playfair Display', serif",
   },
 
-  brightness: 1,
+  brightness: 100,
 
   red: {
     300: '#ff6978',
@@ -31,25 +31,25 @@ export default {
   },
 
   gray: {
-    50: '#fffcf9',
+    50: '#313131',
     100: '#fefefe',
-    200: '#fff6e5',
-    300: '#fdfcfc',
+    200: '#5a5a59',
+    300: '#54565a',
     400: '#e7e7e1',
     425: '#d8d8d8',
     435: '#cfcbd2',
     450: '#c8c8c8',
-    500: '#bfbebf',
+    500: '#6b6b6b',
     525: '#979797',
     550: '#838281',
     560: '#74776d',
-    565: '#6b6b6b',
-    570: '#6a6767',
+    565: '#cfcbd2',
+    570: '#d8d8d8',
     575: '#5a5a59',
-    600: '#54565a',
-    700: '#3f4043',
-    750: '#36383a',
-    800: '#313131',
+    600: '#fdfcfc',
+    700: '#e7e7e1',
+    750: '#fff6e5',
+    800: '#fff6e5',
     900: '#2a2b26',
   },
 };

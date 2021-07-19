@@ -1,8 +1,9 @@
-import { useEffect, useState, useMemo, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { NextSeo } from 'next-seo';
 
 import useBooks from 'hooks/useBooks';
 
+import ThemeSwitch from 'components/ThemeSwitch';
 import SearchBookInput from 'components/SearchBookInput';
 import BookSectionContainer from 'components/BookSectionContainer';
 import BookSlider from 'components/BookSlider';
@@ -108,6 +109,9 @@ export default function HomeTemplate({
 
       <S.Main>
         <S.Container as="header">
+          <S.ThemeSwitchContainer>
+            <ThemeSwitch />
+          </S.ThemeSwitchContainer>
           <SearchBookInput
             value={searchInputValue}
             onChange={handleSearchBookInputChange}

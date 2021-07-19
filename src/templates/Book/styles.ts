@@ -13,7 +13,7 @@ type ShapeProps = {
 };
 
 export const Header = styled.header`
-  padding-top: 3.4375rem;
+  padding-top: 3.125rem;
   position: relative;
 
   a {
@@ -31,6 +31,8 @@ export const Header = styled.header`
     z-index: -1;
     border-radius: 0 0 6.25rem 0;
 
+    transition: background-color 200ms;
+
     position: absolute;
     top: 0;
   }
@@ -40,6 +42,8 @@ export const Container = styled.div`
   ${container}
 
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const BookCoverContainer = styled.div`
@@ -83,6 +87,7 @@ export const BookCoverShimmer = styled.div`
 
 export const Shape = styled.img<ShapeProps>`
   position: absolute;
+  transition: filter 200ms;
 
   ${({ redCircle }) =>
     redCircle &&
@@ -105,6 +110,7 @@ export const Shape = styled.img<ShapeProps>`
       z-index: -1;
       right: -8px;
       top: 2px;
+      filter: brightness(${({ theme }) => theme.brightness});
     `}
 
   ${({ oval }) =>
@@ -113,6 +119,7 @@ export const Shape = styled.img<ShapeProps>`
       z-index: -1;
       right: -22px;
       bottom: 31px;
+      filter: brightness(${({ theme }) => theme.brightness});
     `}
 
   ${({ ovalBig }) =>
@@ -121,6 +128,7 @@ export const Shape = styled.img<ShapeProps>`
       right: -39px;
       top: -18px;
       transform: rotate(25deg);
+      filter: brightness(${({ theme }) => theme.brightness});
     `}
 `;
 
@@ -157,7 +165,7 @@ export const BookDescription = styled.div`
   margin-top: 0.625rem;
   letter-spacing: 0.03125rem;
   line-height: 1.5625rem;
-  color: rgba(49, 49, 49, 0.6);
+  color: ${({ theme }) => rgba(theme.gray[800], 0.6)};
   font-size: 0.875rem;
   font-family: ${({ theme }) => theme.fonts.SFProText};
   text-align: justify;
@@ -220,9 +228,15 @@ export const QuickAction = styled.div`
 
   font-size: 0.875rem;
   font-weight: 700;
+  border-radius: 0.125rem;
+
+  border: 1px solid
+    ${({ theme }) => (theme.type === 'light' ? 'transparent' : '#fff')};
 
   color: ${({ theme }) => theme.gray[700]};
   letter-spacing: 1px;
+
+  transition: background-color 200ms;
 
   a {
     display: flex;

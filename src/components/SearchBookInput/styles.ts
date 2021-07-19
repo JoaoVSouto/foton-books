@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
 
-  transition: border-color 200ms;
+  transition: border-color 200ms, background-color 200ms;
 
   &:focus-within {
     border-color: ${({ theme }) => theme.red[300]};

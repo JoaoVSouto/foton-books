@@ -54,6 +54,7 @@
     "jsx-a11y/label-has-associated-control": "off",
     "@next/next/no-img-element": "off",
     "class-methods-use-this": "off",
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error"
   }
 }

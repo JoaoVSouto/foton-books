@@ -20,6 +20,12 @@ export const Container = styled.div`
   ${container}
 `;
 
+export const ThemeSwitchContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+`;
+
 export const Callout = styled.h1`
   color: ${({ theme }) => theme.gray[600]};
   font-size: 1.5rem;

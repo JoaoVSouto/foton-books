@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import { FiArrowLeft, FiBookOpen, FiHeadphones, FiShare } from 'react-icons/fi';
 
+import ThemeSwitch from 'components/ThemeSwitch';
+
 import * as S from './styles';
 
 type Book = {
@@ -35,6 +37,8 @@ export default function BookTemplate({ book }: BookTemplateProps) {
               <FiArrowLeft />
             </a>
           </Link>
+
+          <ThemeSwitch />
         </S.Container>
 
         <S.BookCoverContainer>
