@@ -1,15 +1,12 @@
+import base from './base';
+
 export default {
+  ...base,
+
   type: 'dark',
 
   white: '#333',
   black: '#fff',
-
-  fonts: {
-    SFProDisplay: "'SF Pro Display', sans-serif",
-    SFProText: "'SF Pro Text', sans-serif",
-    Roboto: "'Roboto', sans-serif",
-    PlayfairDisplay: "'Playfair Display', serif",
-  },
 
   brightness: 100,
 
