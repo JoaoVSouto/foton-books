@@ -2,15 +2,14 @@ import { Book } from 'models/Book';
 
 class BookUtils {
   parseInitialBook(book: Book) {
-    const bookCoverUrlSearchParams = new URLSearchParams(
+    const bookCoverUrlInstance = new URL(
       book.volumeInfo.imageLinks?.thumbnail || ''
     );
 
-    bookCoverUrlSearchParams.delete('edge');
+    bookCoverUrlInstance.protocol = 'https:';
+    bookCoverUrlInstance.searchParams.delete('edge');
 
-    const bookCoverUrl = decodeURIComponent(
-      bookCoverUrlSearchParams.toString()
-    );
+    const bookCoverUrl = decodeURIComponent(bookCoverUrlInstance.toString());
 
     return {
       id: book.id,
@@ -21,15 +20,14 @@ class BookUtils {
   }
 
   parseDetailsBook(book: Book) {
-    const bookCoverUrlSearchParams = new URLSearchParams(
+    const bookCoverUrlInstance = new URL(
       book.volumeInfo.imageLinks?.thumbnail || ''
     );
 
-    bookCoverUrlSearchParams.delete('edge');
+    bookCoverUrlInstance.protocol = 'https:';
+    bookCoverUrlInstance.searchParams.delete('edge');
 
-    const bookCoverUrl = decodeURIComponent(
-      bookCoverUrlSearchParams.toString()
-    );
+    const bookCoverUrl = decodeURIComponent(bookCoverUrlInstance.toString());
 
     return {
       id: book.id,
