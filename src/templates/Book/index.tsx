@@ -96,7 +96,11 @@ export default function BookTemplate({ book }: BookTemplateProps) {
             {book.subtitle ? ` : ${book.subtitle}` : ''}
           </h1>
         )}
-        {isLoading ? <S.AuthorsShimmer /> : <span>{book.authors}</span>}
+        {isLoading ? (
+          <S.AuthorsShimmer />
+        ) : (
+          book.authors && <span>{book.authors}</span>
+        )}
         {isLoading ? (
           <>
             {Array(5)
