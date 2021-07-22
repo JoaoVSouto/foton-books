@@ -54,6 +54,8 @@ $ yarn
 $ yarn dev
 ```
 
+If you don't want to have the app in your machine and **just want to see it working** simply go to [https://foton-frontend-challenge-joaovsouto.vercel.app/](https://foton-frontend-challenge-joaovsouto.vercel.app/).
+
 ## :page_facing_up: License
 
 This project is under the MIT license. See the [LICENSE](https://github.com/JoaoVSouto/foton-frontend-challenge/blob/main/LICENSE) for more information.
