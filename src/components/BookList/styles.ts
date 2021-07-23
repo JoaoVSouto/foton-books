@@ -34,7 +34,7 @@ export const Container = styled(SimpleBar)`
   ${container}
 
   max-height: calc(100vh - 5rem - 4.125rem - 3.125rem);
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
 
   .simplebar-track.simplebar-vertical {
     .simplebar-scrollbar::before {
