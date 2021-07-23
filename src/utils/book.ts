@@ -1,15 +1,29 @@
 import { Book } from 'models/Book';
 
 class BookUtils {
+  static parseBookCover(coverUrl?: string) {
+    if (!coverUrl) {
+      return '';
+    }
+
+    try {
+      const bookCoverUrlInstance = new URL(coverUrl);
+
+      bookCoverUrlInstance.protocol = 'https:';
+      bookCoverUrlInstance.searchParams.delete('edge');
+
+      const bookCoverUrl = decodeURIComponent(bookCoverUrlInstance.toString());
+
+      return bookCoverUrl;
+    } catch {
+      return '';
+    }
+  }
+
   parseInitialBook(book: Book) {
-    const bookCoverUrlInstance = new URL(
-      book.volumeInfo.imageLinks?.thumbnail || ''
+    const bookCoverUrl = BookUtils.parseBookCover(
+      book.volumeInfo.imageLinks?.thumbnail
     );
-
-    bookCoverUrlInstance.protocol = 'https:';
-    bookCoverUrlInstance.searchParams.delete('edge');
-
-    const bookCoverUrl = decodeURIComponent(bookCoverUrlInstance.toString());
 
     return {
       id: book.id,
@@ -20,14 +34,9 @@ class BookUtils {
   }
 
   parseDetailsBook(book: Book) {
-    const bookCoverUrlInstance = new URL(
-      book.volumeInfo.imageLinks?.thumbnail || ''
+    const bookCoverUrl = BookUtils.parseBookCover(
+      book.volumeInfo.imageLinks?.thumbnail
     );
-
-    bookCoverUrlInstance.protocol = 'https:';
-    bookCoverUrlInstance.searchParams.delete('edge');
-
-    const bookCoverUrl = decodeURIComponent(bookCoverUrlInstance.toString());
 
     return {
       id: book.id,
